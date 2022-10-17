@@ -1,19 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useLayoutEffect } from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+// import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, useLocation } from "react-router-dom";
+
+interface Props {
+  children?: React.ReactNode;
+  // any props that come into the component
+}
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+const Wrapper = ({ children }: Props): any => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+};
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+    <BrowserRouter>
+      <Wrapper>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Wrapper>
+    </BrowserRouter>
+  </>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
