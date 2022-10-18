@@ -1,5 +1,5 @@
 import React from "react";
-// import { ArrowPathIcon } from "@heroicons/react/24/solid";
+
 // ========== Builder Components Icons ========
 import { RiText } from "react-icons/ri";
 import { BsTextareaResize } from "react-icons/bs";
