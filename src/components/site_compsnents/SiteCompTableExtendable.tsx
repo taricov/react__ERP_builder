@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Button, Form, Input, Popconfirm, Table } from "antd";
 
-const SiteExtendedTableComp = () => {
-  return <div>SiteExtendedTableComp</div>;
+const SiteCompTableExtended = () => {
+  const [form] = Form.useForm();
+
+  return <div></div>;
 };
 
-export default SiteExtendedTableComp;
+export default SiteCompTableExtended;
