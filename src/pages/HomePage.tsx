@@ -3,11 +3,12 @@ import ButtonCard from "../components/ButtonCard";
 import { AiOutlineSetting, AiOutlineHome } from "react-icons/ai";
 import { IoConstructOutline } from "react-icons/io5";
 import { VscFileSubmodule } from "react-icons/vsc";
+import StatusBar from "../components/StatusBar";
 
 const HomePage = () => {
   return (
-    <div className="bg-blue-200 w-screen h-screen flex items-center content-center">
-      <main className="bg-blue-500 flex items-center content-center gap-5 m-auto w-4/5">
+    <div className="bg-blue-200 w-screen h-screen flex flex-col items-center content-center ">
+      <main className="flex items-center content-center gap-5 m-auto w-4/5">
         <ButtonCard
           title="Modules"
           desc="Your apps that you built"
@@ -218,6 +219,7 @@ const HomePage = () => {
           </div>
         </div> */}
       </main>
+      <StatusBar />
     </div>
   );
 };

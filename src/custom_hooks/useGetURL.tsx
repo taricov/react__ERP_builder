@@ -6,6 +6,7 @@ export default function useGetURL() {
   const url = useLocation();
   let pathCrumbs = url.pathname.split("/");
   let x = "";
+  console.log(pathCrumbs);
   const urlCrumbs = pathCrumbs.map((v, i) => {
     let href = `${x}/${v}`;
     return v !== pathCrumbs[pathCrumbs.length - 1] ? (
@@ -13,7 +14,7 @@ export default function useGetURL() {
         {v === "" ? "Home" : v}
       </Anchor>
     ) : (
-      <span>{v}</span>
+      <span key={i}>{v}</span>
     );
   });
   return urlCrumbs;
