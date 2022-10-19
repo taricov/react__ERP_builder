@@ -16,10 +16,10 @@ const SiteCompSearchBar = ({ label, placeholder, TheIcon }: Props) => {
         <TextInput
           label={label}
           placeholder={placeholder}
+          icon={<FiSearch />}
           rightSection={<TheIcon />}
           size="xs"
         />
-        {/* <TextInput label={label} placeholder={placeholder} icon={<FiSearch />} /> */}
       </div>
     </div>
   );

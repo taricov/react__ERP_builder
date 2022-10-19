@@ -11,7 +11,7 @@ const ButtonCard = ({ title, desc, Icon }: Props) => {
     <>
       <a
         href="."
-        className="block h-1/2 w-1/3 text-lg p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-all duration-200ms text-center"
+        className="block h-fit w-1/3 text-lg p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition-all duration-200ms text-center"
       >
         <div className="p-10">
           {<Icon className="text-slate-100 hover:text-white text-6xl m-auto" />}

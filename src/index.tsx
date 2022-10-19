@@ -4,7 +4,6 @@ import App from "./App";
 import "./index.css";
 // import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, useLocation } from "react-router-dom";
-
 interface Props {
   children?: React.ReactNode;
   // any props that come into the component

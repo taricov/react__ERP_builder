@@ -18,7 +18,9 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "antd": "^4.23.6",
+    "hoist-non-react-statics": "^3.3.2",
     "init": "^0.1.2",
+    "jquery": "^3.6.1",
     "react": "^18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
@@ -55,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.14",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.1.8"
