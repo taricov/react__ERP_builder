@@ -1,11 +1,30 @@
 import React from "react";
-import AppMenu from "../components/AppMenu";
+import ButtonCard from "../components/ButtonCard";
+import { AiOutlineSetting, AiOutlineHome } from "react-icons/ai";
+import { IoConstructOutline } from "react-icons/io5";
+import { VscFileSubmodule } from "react-icons/vsc";
 
 const HomePage = () => {
   return (
-    <div>
-      <main className="bg-blue-200 w-full h-screen">
-        <div className="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="bg-blue-200 w-screen h-screen flex items-center content-center">
+      <main className="bg-blue-500 flex items-center content-center gap-5 m-auto w-4/5">
+        <ButtonCard
+          title="Modules"
+          desc="Your apps that you built"
+          Icon={VscFileSubmodule}
+        />
+        <ButtonCard
+          title="Builder"
+          desc="Where You Can Build Your Module"
+          Icon={IoConstructOutline}
+        />
+        <ButtonCard
+          title="Settings"
+          desc="System Configurations"
+          Icon={AiOutlineSetting}
+        />
+
+        {/* <div className="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
           <ul
             className="flex flex-wrap text-sm font-medium text-center text-gray-500 bg-gray-50 rounded-t-lg border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
             id="defaultTab"
@@ -197,7 +216,7 @@ const HomePage = () => {
               </dl>
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </div>
   );

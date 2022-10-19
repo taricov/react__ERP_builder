@@ -1,4 +1,4 @@
-import { Anchor, Breadcrumbs } from "@mantine/core";
+import { Breadcrumbs } from "@mantine/core";
 import React from "react";
 import useGetURL from "../../custom_hooks/useGetURL";
 
