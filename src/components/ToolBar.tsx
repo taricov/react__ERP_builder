@@ -1,4 +1,6 @@
 import React from "react";
+import { FiSearch } from "react-icons/fi";
+import SiteCompSearchBar from "./site_compsnents/SiteCompSearchBar";
 import ToolBarFilters from "./ToolBarFilters";
 
 //TODO: Search
@@ -13,8 +15,13 @@ import ToolBarFilters from "./ToolBarFilters";
 
 const ToolBar = () => {
   return (
-    <div>
+    <div className="flex gap-2 items-end">
       <ToolBarFilters />
+      <SiteCompSearchBar
+        label="Search Bar"
+        placeholder="Search..."
+        TheIcon={FiSearch}
+      />
     </div>
   );
 };

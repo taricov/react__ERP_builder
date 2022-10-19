@@ -1710,6 +1710,13 @@
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.5.5.tgz#cffe0080d940e951d69a1496d4a4b8484163711e"
   integrity sha512-qWZAZm203s0knYk6Ut4VPvur9H5BMul02cCb9E09s60iSjnLRHDC3f73VmSzmLZNVfgE+7hXUhguR/1lC7js4Q==
 
+"@mantine/spotlight@^5.5.6":
+  version "5.5.6"
+  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.5.6.tgz#5c6cef34b44bfc394459de9e15ed80916ef49738"
+  integrity sha512-IdkjKy76YcPemJhyo/O4NPURb+9gtNvKr8PoxQEKJG0wbPk+KDvNscEva1pDOpG+lcI/xy/l1QA6DrDkPO/HeQ==
+  dependencies:
+    "@mantine/utils" "5.5.6"
+
 "@mantine/styles@5.5.5", "@mantine/styles@^5.5.5":
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-5.5.5.tgz#1bb49031f68c3c2d54cbd5c3ac62131ced4fa110"
@@ -1722,6 +1729,11 @@
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.5.tgz#22b412b6e9d78f2515f9f98db3f5ed83deca91ca"
   integrity sha512-nt8+A0N1cV4cJNqlKuXazShoEwqtLohHNKFuywEdF3B6vHWdbY799PbT2WmqGTwNQ+se8y5/nBMmamBZrUN4fg==
+
+"@mantine/utils@5.5.6":
+  version "5.5.6"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.6.tgz#769fce79028ac6842b15753e0e9c16480be0b585"
+  integrity sha512-uEeMwTPmt7HMdtdbu7pZQ3en5F3Dj7cavhWGRcokj7PluuzNM+79iR/g4bJ3C4SKhj5LdHi7KjX8+zp6GKyrBg==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"

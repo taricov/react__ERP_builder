@@ -6,8 +6,10 @@ interface Props {
   pos: "left" | "center" | "right" | undefined;
   my?: string;
   TheIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  title: string;
 }
 const SiteCompDivider = ({
+  title,
   variant = undefined,
   pos,
   my = "xs",
@@ -22,7 +24,7 @@ const SiteCompDivider = ({
         label={
           <>
             <TheIcon />
-            <Box ml={5}>Filters</Box>
+            <Box ml={5}>{title}</Box>
           </>
         }
       />
