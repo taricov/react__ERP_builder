@@ -18,14 +18,12 @@ import SiteCompTooltip from "./site_compsnents/SiteCompTooltip";
 const ToolBar = () => {
   return (
     <div className="flex gap-2 items-end">
-      <BsArrowLeft />
       <ToolBarFilters />
       <SiteCompSearchBar
         label="Search Bar"
         placeholder="Search..."
         TheIcon={FiSearch}
       />
-      <BiRefresh />
     </div>
   );
 };
