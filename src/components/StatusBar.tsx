@@ -1,4 +1,5 @@
 import React from "react";
+import HelperTools from "./HelperTools";
 import SiteCompBreadCrumbs from "./site_compsnents/SiteCompBreadCrumbs";
 import SystemInfo from "./SystemInfo";
 
@@ -8,11 +9,9 @@ import SystemInfo from "./SystemInfo";
 const StatusBar = () => {
   return (
     <div className="STATUS flex items-center justify-start gap-2 w-full text-sm text-white bg-gradient-to-r from-skin-hue1 to-skin-hue2 shadow-lg shadow-orange-900">
-      <div className="min-w-fit">Some infomation will go here!</div>
+      <HelperTools />
       <SiteCompBreadCrumbs />
-      <div className="min-w-fit">
-        <SystemInfo />
-      </div>
+      <SystemInfo />
     </div>
   );
 };

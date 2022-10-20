@@ -11,6 +11,9 @@ const AppToolBar = () => {
       <div className="text-lg font-bold bg-slate-400 p-2 cursor-pointer hover:bg-slate-100 transition-colors duration-200">
         <BiRefresh />
       </div>
+      {/* Spotlight/Global SearchBar */}
+      {/* Login */}
+      {/* Notification */}
     </div>
   );
 };
