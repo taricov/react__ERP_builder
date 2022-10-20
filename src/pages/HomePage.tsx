@@ -3,16 +3,26 @@ import ButtonCard from "../components/ButtonCard";
 import { AiOutlineSetting, AiOutlineHome } from "react-icons/ai";
 import { IoConstructOutline } from "react-icons/io5";
 import { VscFileSubmodule } from "react-icons/vsc";
+import SiteCompTooltip from "../components/site_compsnents/SiteCompTooltip";
+import { Tooltip } from "@mantine/core";
 
 const HomePage = () => {
+  //FIXME: Breadcrum at HOME
+  //FIXME: DND functionality
+  //FIXME: Tooltip not working
+
   return (
     <div className="bg-blue-200 w-screen h-screen flex flex-col items-center content-center ">
       <main className="flex items-center content-center gap-5 m-auto w-4/5">
-        <ButtonCard
-          title="Modules"
-          desc="Your apps that you built"
-          Icon={VscFileSubmodule}
-        />
+        {/* <SiteCompTooltip label="anything"> */}
+        <Tooltip label="anything">
+          <ButtonCard
+            title="Modules"
+            desc="Your apps that you built"
+            Icon={VscFileSubmodule}
+          />
+        </Tooltip>
+        {/* </SiteCompTooltip> */}
         <ButtonCard
           title="Builder"
           desc="Where You Can Build Your Module"

@@ -25,6 +25,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import BuilderColRow from "./BuilderColRow";
 import SiteCompInput from "./site_compsnents/SiteCompInput";
 import { useDrag } from "react-dnd";
+import SiteCompTooltip from "./site_compsnents/SiteCompTooltip";
 
 function BuilderCol() {
   return (

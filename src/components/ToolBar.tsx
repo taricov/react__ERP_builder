@@ -4,6 +4,7 @@ import SiteCompSearchBar from "./site_compsnents/SiteCompSearchBar";
 import ToolBarFilters from "./ToolBarFilters";
 import { BiRefresh } from "react-icons/bi";
 import { BsArrowLeft } from "react-icons/bs";
+import SiteCompTooltip from "./site_compsnents/SiteCompTooltip";
 
 //TODO: GO TO
 //TODO: Notification
