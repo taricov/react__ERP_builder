@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 // ========== Builder Components Icons ========
 import { RiText } from "react-icons/ri";
@@ -21,14 +21,16 @@ import { BsCardText } from "react-icons/bs";
 import { BsCalendarDate } from "react-icons/bs";
 import { BiTimeFive } from "react-icons/bi";
 import { BsCurrencyDollar } from "react-icons/bs";
+// =========== Comp ==============
 import BuilderColRow from "./BuilderColRow";
-import SiteInputComp from "./site_compsnents/SiteCompInput";
+import SiteCompInput from "./site_compsnents/SiteCompInput";
+import { useDrag } from "react-dnd";
 
 function BuilderCol() {
   return (
     <div className="h-full p-3 bg-gradient-to-r from-skin-hue1 to-skin-hue2 flex flex-col gap-1 w-fit">
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -36,7 +38,7 @@ function BuilderCol() {
         title="Single Line Field"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -44,7 +46,7 @@ function BuilderCol() {
         title="Multi-Lines Field"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -52,7 +54,7 @@ function BuilderCol() {
         title="URL Field"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -60,7 +62,7 @@ function BuilderCol() {
         title="Email Field"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -68,7 +70,7 @@ function BuilderCol() {
         title="Phone Number"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -76,7 +78,7 @@ function BuilderCol() {
         title="Date"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -84,7 +86,7 @@ function BuilderCol() {
         title="Time"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -92,7 +94,7 @@ function BuilderCol() {
         title="Currency"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -100,7 +102,7 @@ function BuilderCol() {
         title="Number"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -108,7 +110,7 @@ function BuilderCol() {
         title="Toggle"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -116,7 +118,7 @@ function BuilderCol() {
         title="Check Box"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -124,7 +126,7 @@ function BuilderCol() {
         title="Map Location"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -132,7 +134,7 @@ function BuilderCol() {
         title="Attachment"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -140,7 +142,7 @@ function BuilderCol() {
         title="Multiple Sub-Form"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -148,7 +150,7 @@ function BuilderCol() {
         title="Separator"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -156,7 +158,7 @@ function BuilderCol() {
         title="Dropdown"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name=""
         id=""
         type=""
@@ -164,7 +166,7 @@ function BuilderCol() {
         title="Multi-Select"
       />
       <BuilderColRow
-        comp={<SiteInputComp />}
+        comp={<SiteCompInput />}
         name="formatted "
         id="10"
         type="formatted_txt"

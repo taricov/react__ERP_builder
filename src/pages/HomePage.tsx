@@ -3,7 +3,6 @@ import ButtonCard from "../components/ButtonCard";
 import { AiOutlineSetting, AiOutlineHome } from "react-icons/ai";
 import { IoConstructOutline } from "react-icons/io5";
 import { VscFileSubmodule } from "react-icons/vsc";
-import StatusBar from "../components/StatusBar";
 
 const HomePage = () => {
   return (
@@ -219,7 +218,6 @@ const HomePage = () => {
           </div>
         </div> */}
       </main>
-      <StatusBar />
     </div>
   );
 };

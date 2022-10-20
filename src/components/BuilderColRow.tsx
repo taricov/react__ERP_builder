@@ -24,28 +24,29 @@ interface Props {
   comp: React.ReactNode;
 }
 
-interface DropResult {
-  name: string;
-}
+// interface DropResult {
+//   name: string;
+// }
 const ItemTypes = {
   ELEMENT: "box",
 };
 function BuilderColRow({ Icon, name, title, type, id, comp }: Props) {
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.ELEMENT,
     item: { name, id, type, comp },
-    end: (item, monitor) => {
-      const dropResult = monitor.getDropResult<DropResult>();
-      if (item && dropResult) {
-        // console.log("");
-        // alert(`You dropped ${item} into ${dropResult.name}!`);
-      }
-    },
+    // end: (item, monitor) => {
+    //   const dropResult = monitor.getDropResult<DropResult>();
+    // if (item && dropResult) {
+    // console.log("");
+    // alert(`You dropped ${item} into ${dropResult.name}!`);
+    // }
+    // },
     collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
+      isDragging: !!monitor.isDragging(),
       handlerId: monitor.getHandlerId(),
     }),
-  }));
+  });
+  // }));
   const opacity = isDragging ? 0.4 : 1;
 
   // const [{ opacity }, drag, preview] = useDrag(() => ({

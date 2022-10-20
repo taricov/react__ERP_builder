@@ -15,7 +15,6 @@ export default function useGetURL() {
   let pathCrumbs = url.pathname.split("/");
   let x = "";
   console.log();
-
   const urlCrumbs = pathCrumbs.map((v, i) => {
     let href = `${x}/${v}`;
     return v !== pathCrumbs[pathCrumbs.length - 1] ? (
