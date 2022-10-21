@@ -15,7 +15,7 @@ const SystemInfo = () => {
         <span className="used__memory">2</span>/
         <span className="total__memory">8MB</span>
       </p>
-      <p className="sys__comp flex gap-1">
+      <p className="sys__comp flex gap-1 px-1">
         <span className="update__icon flex items-center content-center ">
           <AiOutlineCheck />
           <GrUpdate />
