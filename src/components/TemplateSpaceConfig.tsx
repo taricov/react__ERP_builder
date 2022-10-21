@@ -3,10 +3,14 @@ import React from "react";
 
 const TemplateSpaceConfig = () => {
   return (
-    <div className="z-10 shadow-2xl fixed left-1/2 top-1/2 w-5/6 h-4/5 -translate-x-1/2 -translate-y-1/2 bg-slate-800 text-white rounded-panel p-5">
-      <div className="flex flex-col bg-slate-400 w-full h-full rounded-panel">
-        <div className="flex items-center content-center w-100 bg-slate-700 flex-1 m-5 rounded-panel"></div>
-        <div className="flex items-center content-center w-100 bg-slate-700 h-1/4 m-5 mt-0 rounded-panel">
+    <div className="z-10 shadow-2xl fixed left-1/2 top-1/2 w-5/6 h-4/5 -translate-x-1/2 -translate-y-1/2 bg-skin-hue0 text-bg-rev rounded-panel p-5">
+      <div className="flex flex-col bg-primary-800 w-full h-full rounded-panel">
+        <div className="flex items-center content-center w-100 bg-primary-700 flex-1 m-5 rounded-panel">
+          {/* {x.map(v=>(
+            <div className={`rounded-panel`}></div>
+          ))} */}
+        </div>
+        <div className="flex items-center content-center w-100 bg-primary-700 h-1/4 m-5 mt-0 rounded-panel">
           <Slider
             className="w-1/5"
             size="sm"
