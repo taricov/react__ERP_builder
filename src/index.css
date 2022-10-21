@@ -13,6 +13,17 @@ html{
 
 @layer{
   :root{
+--color-light-1:100, 89, 114;
+--color-light-2:219, 213, 229;
+
+--color-light-0:248, 249, 250;
+--color-ff-1:103, 116, 142;
+
+--shadow-status-bar: 0px 5px 20px rgba(0,0,0,0.26);
+--trans:400ms;
+
+
+
     --color-bg-grad1: 4, 165, 100;
     --color-bg-grad2: 39, 195, 132;
 
@@ -21,7 +32,6 @@ html{
     --color-row-bg: 0,0,0;
     /* --color-row-bg-hover: 0,0,0,.05; */
 
-    --trans:400ms;
     --s: 100px; /* control the size */
     --_g: #0000 90deg,#366 0;
     --cell-s: 20px

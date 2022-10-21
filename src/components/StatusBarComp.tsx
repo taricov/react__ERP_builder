@@ -3,12 +3,18 @@ import React, { SVGProps } from "react";
 interface Props {
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
   text: string;
-  statusColor?: string;
+  statusColor?: string | undefined;
+  rightPad?: string | undefined;
 }
-const StatusBarComp = ({ Icon, text, statusColor = "text-white" }: Props) => {
+const StatusBarComp = ({
+  Icon,
+  text,
+  statusColor = undefined,
+  rightPad = undefined,
+}: Props) => {
   return (
     <div
-      className={`flex text-${statusColor} cursor-pointer hover:bg-slate-300 transition-colors duration-200 pl-1`}
+      className={`flex cursor-pointer contrast-100 hover:contrast-0 transition-all duration-trans pl-2 ${rightPad}`}
     >
       <span className="flex items-center content-center">
         <Icon className={`text-xs ${statusColor}`} />

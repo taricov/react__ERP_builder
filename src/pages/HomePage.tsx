@@ -13,30 +13,31 @@ const HomePage = () => {
   //FIXME: Tooltip not working
 
   return (
-    <div className="bg-blue-200 w-screen h-screen flex flex-col items-center content-center ">
-      <main className="flex items-center content-center gap-5 m-auto w-4/5">
-        <TemplateSpaceConfig />
-        {/* <SiteCompTooltip label="anything"> */}
-        <Tooltip label="anything">
+    <div className="relative w-screen h-screen flex flex-col items-center content-center">
+      {/* <TemplateSpaceConfig /> */}
+      <main className="flex items-center content-center gap-5 m-auto w-full h-full bg-gradient-to-r from-skin-hue2 to-skin-hue0 ">
+        <div className="w-4/5 flex items-center content-center gap-5 m-auto ">
+          {/* <SiteCompTooltip label="anything"> */}
+          <Tooltip label="anything">
+            <ButtonCard
+              title="Modules"
+              desc="Your apps that you built"
+              Icon={VscFileSubmodule}
+            />
+          </Tooltip>
+          {/* </SiteCompTooltip> */}
           <ButtonCard
-            title="Modules"
-            desc="Your apps that you built"
-            Icon={VscFileSubmodule}
+            title="Builder"
+            desc="Where You Can Build Your Module"
+            Icon={IoConstructOutline}
           />
-        </Tooltip>
-        {/* </SiteCompTooltip> */}
-        <ButtonCard
-          title="Builder"
-          desc="Where You Can Build Your Module"
-          Icon={IoConstructOutline}
-        />
-        <ButtonCard
-          title="Settings"
-          desc="System Configurations"
-          Icon={AiOutlineSetting}
-        />
+          <ButtonCard
+            title="Settings"
+            desc="System Configurations"
+            Icon={AiOutlineSetting}
+          />
 
-        {/* <div className="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
+          {/* <div className="w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
           <ul
             className="flex flex-wrap text-sm font-medium text-center text-gray-500 bg-gray-50 rounded-t-lg border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800"
             id="defaultTab"
@@ -229,6 +230,7 @@ const HomePage = () => {
             </div>
           </div>
         </div> */}
+        </div>
       </main>
     </div>
   );

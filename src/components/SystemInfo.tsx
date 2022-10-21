@@ -1,8 +1,7 @@
 import React from "react";
 import { AiOutlineCheck, AiOutlineExclamationCircle } from "react-icons/ai";
 import { FaDatabase } from "react-icons/fa";
-import { FiDatabase } from "react-icons/fi";
-import { GrUpdate } from "react-icons/gr";
+// import { FiDatabase } from "react-icons/fi";
 import { MdMemory } from "react-icons/md";
 import StatusBarComp from "./StatusBarComp";
 
@@ -16,6 +15,7 @@ const SystemInfo = () => {
       <StatusBarComp Icon={FaDatabase} text={dbConsumed} />
       <StatusBarComp Icon={MdMemory} text={memoryConsumed} />
       <StatusBarComp
+        rightPad="pr-1"
         Icon={updated ? AiOutlineCheck : AiOutlineExclamationCircle}
         text={updated ? "Updated" : "New Update"}
         statusColor={!updated ? "text-red-600" : ""}
