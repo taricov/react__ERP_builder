@@ -1,27 +1,25 @@
 import React from "react";
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineExclamationCircle } from "react-icons/ai";
+import { FaDatabase } from "react-icons/fa";
+import { FiDatabase } from "react-icons/fi";
 import { GrUpdate } from "react-icons/gr";
+import { MdMemory } from "react-icons/md";
+import StatusBarComp from "./StatusBarComp";
+
+let dbConsumed = "0.3/5MB";
+let memoryConsumed = "2/10MB";
+let updated = false;
 
 const SystemInfo = () => {
   return (
-    <div className="h-full flex items-center p-1 content-center gap-3 text-xs hover:bg-slate-900 cursor-pointer transition-colors duration-200">
-      <p className="storage__comp">
-        Disk:
-        <span className="storage__status">0.7</span>/
-        <span className="storage__total">10MB</span>
-      </p>
-      <p className="sys__comp">
-        Memory:
-        <span className="used__memory">2</span>/
-        <span className="total__memory">8MB</span>
-      </p>
-      <p className="sys__comp flex gap-1 px-1">
-        <span className="update__icon flex items-center content-center ">
-          <AiOutlineCheck />
-          <GrUpdate />
-        </span>
-        <span className="update__status">Updated</span>
-      </p>
+    <div className="flex gap-0.5">
+      <StatusBarComp Icon={FaDatabase} text={dbConsumed} />
+      <StatusBarComp Icon={MdMemory} text={memoryConsumed} />
+      <StatusBarComp
+        Icon={updated ? AiOutlineCheck : AiOutlineExclamationCircle}
+        text={updated ? "Updated" : "New Update"}
+        statusColor={!updated ? "text-red-600" : ""}
+      />
     </div>
   );
 };
