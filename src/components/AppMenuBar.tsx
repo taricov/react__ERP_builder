@@ -9,7 +9,7 @@ const fileMenu = [
 
 const AppMenuBar = () => {
   return (
-    <div className="w-full flex items-center content-start bg-lime-900">
+    <div className="w-full flex items-center content-start bg-primary-800">
       <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
       <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
       <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />

@@ -5,7 +5,7 @@ import StatusBarComp from "./StatusBarComp";
 
 const AppToolBar = () => {
   return (
-    <div className="flex bg-slate-600">
+    <div className="flex bg-primary-700">
       <StatusBarComp Icon={AiOutlineArrowLeft} text="Back" />
       <StatusBarComp Icon={BiRefresh} text="Sync" />
       {/* <div className="text-lg font-bold bg-slate-400 p-2 cursor-pointer hover:bg-slate-100 transition-colors duration-200">

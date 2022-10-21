@@ -5,12 +5,10 @@ import BuilderCol from "../components/BuilderCol";
 import BuilderConfigCol from "../components/BuilderConfigCol";
 import TemplateSpace from "../components/TemplateSpace";
 import ToolBar from "../components/ToolBar";
-//TODO: add TaskBar
-//TODO: tailwind vars (to have unified style sys)
 //TODO: re-configure the DnD functions
 const FormBuildingPage = () => {
   return (
-    <div className="bg-slate-200 min-h-90 max-h-screen relative">
+    <div className="bg-slate-200 min-h-90 max-h-screen relative pt-10">
       <ToolBar />
       <DndProvider backend={HTML5Backend}>
         <div className="flex flex-col">
