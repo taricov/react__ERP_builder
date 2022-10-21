@@ -63,15 +63,15 @@ function BuilderColRow({ Icon, name, title, type, id, comp }: Props) {
         // type={type}
         ref={drag}
         style={{ ...style, opacity }}
-        className="text-skin-base font-bold bg-skin-builderRow bg-opacity-20 cursor-grab active:cursor-grabbing flex items-center duration-trans ease-out space-x-2 rounded-md overflow-hidden w-full select-none hover:bg-opacity-10 group"
+        className="text-bg-rev font-bold bg-skin-builderRow bg-opacity-20 cursor-grab active:cursor-grabbing flex items-center duration-trans ease-out space-x-2 rounded-md overflow-hidden w-full select-none hover:bg-opacity-10 group"
       >
-        <div className="bg-skin-builderRowIconBg bg-opacity-10 p-2">
+        <div className="bg-primary-800 bg-opacity-10 p-2">
           <Icon
             type={type}
             className="w-5 h-5 opacity-30 duration-trans group-hover:opacity-100"
           />
         </div>
-        <p className="text- px-1 w-max pr-10">{title}</p>
+        <p className=" px-1 w-max pr-10">{title}</p>
       </div>
     </>
   );

@@ -29,7 +29,7 @@ import SiteCompTooltip from "./site_compsnents/SiteCompTooltip";
 
 function BuilderCol() {
   return (
-    <div className="h-full p-3 bg-gradient-to-r from-skin-hue1 to-skin-hue2 flex flex-col gap-1 w-fit">
+    <div className="h-full p-3 bg-gradient-to-r from-skin-hue1 to-skin-hue2-10 flex flex-col gap-1 w-fit">
       <BuilderColRow
         comp={<SiteCompInput />}
         name=""

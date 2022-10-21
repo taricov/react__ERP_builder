@@ -22,7 +22,7 @@ const TemplateSpaceSlot: React.FC = (props) => {
   // isOver ? console.log("Ada") : console.log("ff");
   return (
     <div
-      className="bg-slate-600 transition-all duration-150 text-white flex items-center content-center rounded-panel w-1/2 h-10 p-2 overflow-hidden"
+      className="bg-primary-800 transition-all duration-150 text-white flex items-center content-center rounded-panel w-1/2 h-10 p-2 overflow-hidden"
       data-testid="field"
       // ref={drop}
     >

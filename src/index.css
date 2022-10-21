@@ -66,8 +66,8 @@ html{
 
 }
 
-/* .mantine-Breadcrumbs-separator{
-  color: white;
+.mantine-Breadcrumbs-separator{
+  /* color: white; */
   font-size: 10px;
   margin-inline:5px;
-} */
+}
