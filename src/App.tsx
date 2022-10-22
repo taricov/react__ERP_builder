@@ -5,11 +5,13 @@ import HomePage from "./pages/HomePage";
 import StatusBar from "./components/StatusBar";
 import AppTopBar from "./components/AppTopBar";
 import AddNewModulePage from "./pages/AddNewModulePage";
+import ShortcutsModal from "./components/ShortcutsModal";
 
 function App() {
   return (
     <div className="">
       <AppTopBar />
+      <ShortcutsModal />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="app_name/builder" element={<FormBuildingPage />} />

@@ -19,12 +19,13 @@ export default function useGetURL() {
     pathCrumbs[1] !== ""
       ? pathCrumbs.map((v, i) => {
           let href = `${x}/${v}`;
+          v = v.includes("_") ? v.split("_").join(" ") : v;
           return v !== pathCrumbs[pathCrumbs.length - 1] ? (
-            <Anchor className="text-cta-dark" href={href} key={i}>
+            <Anchor className="text-cta-dark capitalize" href={href} key={i}>
               {v === "" ? "Home" : v}
             </Anchor>
           ) : (
-            <span className="" key={i}>
+            <span className="text-cta-dark capitalize" key={i}>
               {v}
             </span>
           );
