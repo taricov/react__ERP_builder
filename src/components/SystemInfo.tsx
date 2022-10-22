@@ -12,9 +12,10 @@ const SystemInfo = () => {
   const [updated, setUpdated] = useState(true);
   return (
     <div className="flex gap-0.5">
-      <StatusBarComp Icon={FaDatabase} text={dbConsumed} />
-      <StatusBarComp Icon={MdMemory} text={memoryConsumed} />
+      <StatusBarComp where="Status" Icon={FaDatabase} text={dbConsumed} />
+      <StatusBarComp where="Status" Icon={MdMemory} text={memoryConsumed} />
       <StatusBarComp
+        where="Status"
         rightPad="pr-1"
         Icon={updated ? AiOutlineCheck : AiOutlineExclamationCircle}
         text={updated ? "Updated" : "New Update"}

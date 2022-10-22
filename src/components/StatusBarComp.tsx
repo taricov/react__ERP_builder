@@ -5,19 +5,25 @@ interface Props {
   text: string;
   statusColor?: string | undefined;
   rightPad?: string | undefined;
+  size?: string;
+  where?: string;
 }
 const StatusBarComp = ({
   Icon,
   text,
-  statusColor = undefined,
-  rightPad = undefined,
+  size = "lg",
+  statusColor = undefined, //for Updated status in the StatusBar
+  rightPad = "pr-0",
+  where = "topBar",
 }: Props) => {
+  let hoveEffect =
+    where === "Status" ? "hover:contrast-0" : "hover:bg-primary-600";
   return (
     <div
-      className={`flex cursor-pointer contrast-100 hover:contrast-0 transition-all duration-trans pl-2 ${rightPad}`}
+      className={`h-full block flex cursor-pointer contrast-100 ${hoveEffect} transition-all duration-trans pl-2 ${rightPad}`}
     >
       <span className="flex items-center content-center">
-        <Icon className={`text-xs ${statusColor}`} />
+        <Icon className={`text-${size} ${statusColor}`} />
       </span>
       <p className={`px-1 ${statusColor}`}>{text}</p>
     </div>

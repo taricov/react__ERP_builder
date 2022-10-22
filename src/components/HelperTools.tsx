@@ -8,11 +8,15 @@ import StatusBarComp from "./StatusBarComp";
 const HelperTools = () => {
   return (
     <div className="flex gap-0.5">
-      <StatusBarComp Icon={MdOutlineTipsAndUpdates} text="Help" />
-      <StatusBarComp Icon={CgNotes} text="Notes" />
-      <StatusBarComp Icon={BiStopwatch} text="Watch" />
-      <StatusBarComp Icon={BiSupport} text="Support" />
-      <StatusBarComp Icon={VscFeedback} text="Feedback" />
+      <StatusBarComp
+        where="Status"
+        Icon={MdOutlineTipsAndUpdates}
+        text="Help"
+      />
+      <StatusBarComp where="Status" Icon={CgNotes} text="Notes" />
+      <StatusBarComp where="Status" Icon={BiStopwatch} text="Watch" />
+      <StatusBarComp where="Status" Icon={BiSupport} text="Support" />
+      <StatusBarComp where="Status" Icon={VscFeedback} text="Feedback" />
     </div>
   );
 };

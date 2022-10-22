@@ -19,6 +19,7 @@ const FunctionsBar = () => {
   return (
     <div className="flex gap-2 px-2 pb-2 items-end text-cta-dark bg-primary-200 w-fit">
       <FunctionsBarFilters />
+      <FunctionsBarFilters />
       <SiteCompSearchBar
         label="Search Bar"
         placeholder="Search..."
