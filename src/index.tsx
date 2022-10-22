@@ -56,7 +56,7 @@ root.render(
       actions={defaultSpotlightActions}
       searchIcon={<FiSearch />}
       searchPlaceholder="Search..."
-      shortcut={["ctrl + K", "meta + K"]}
+      shortcut={["mod + K"]}
       nothingFoundMessage="Nothing found..."
     >
       <BrowserRouter>
