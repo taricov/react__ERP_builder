@@ -6,7 +6,7 @@ interface Props {
   shCuts: string[];
 }
 
-const ShortCutsRow = ({ desc, shCuts }: Props) => {
+const ShortcutsRow = ({ desc, shCuts }: Props) => {
   return (
     <div>
       <div className="">{desc}</div>
@@ -23,4 +23,4 @@ const ShortCutsRow = ({ desc, shCuts }: Props) => {
   );
 };
 
-export default ShortCutsRow;
+export default ShortcutsRow;

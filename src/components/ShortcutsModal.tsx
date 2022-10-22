@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import ShortcutsSections from "./ShortcutsSections";
+import ShortcutsSection from "./ShortcutsSection";
 import SiteCompModal from "./site_compsnents/SiteCompModal";
 
 const ShortcutsModal = () => {
@@ -23,7 +23,7 @@ const ShortcutsModal = () => {
       <SiteCompModal opened={opened} setOpened={setOpened}>
         <div className="FFF w-4/5 h-5/6 ">
           <h1 className="">Site Shortcuts</h1>
-          <ShortcutsSections title="Find And More" />
+          <ShortcutsSection title="Find And More" />
         </div>
       </SiteCompModal>
     </>
