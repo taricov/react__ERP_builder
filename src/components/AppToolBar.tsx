@@ -1,9 +1,10 @@
-import { Avatar } from "@mantine/core";
+import { Avatar, Group, Indicator } from "@mantine/core";
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BiRefresh } from "react-icons/bi";
 import { IoAddSharp } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
+import Yousra from "../assets/2.jpg";
 import {
   MdOutlineNotificationsActive,
   MdOutlineNotificationsNone,
@@ -61,20 +62,36 @@ const darkMode = () => {
 };
 
 const AppToolBar = () => {
+  let Notification = false;
   return (
     <div className="h-full flex bg-primary-700 items-center ">
       <StatusBarComp Icon={AiOutlineArrowLeft} text="Back" />
       <StatusBarComp Icon={BiRefresh} text="Sync" />
-      <StatusBarComp Icon={MdOutlineNotificationsActive} text="None" />
-      <StatusBarComp Icon={MdOutlineNotificationsOff} text="Sy" />
+      {Notification ? (
+        <StatusBarComp
+          Icon={MdOutlineNotificationsActive}
+          text="Notifications"
+        />
+      ) : (
+        <StatusBarComp Icon={MdOutlineNotificationsOff} text="None" />
+      )}
       <StatusBarComp Icon={BiRefresh} text="Sync" />
-      <StatusBarComp Icon={IoAddSharp} text="Add" />
-      <StatusBarComp Icon={FiSearch} text="Search" />
-      <Avatar
-        className="w-4 h-5 flex items-center justify-center cursor-pointer bg-primary-600 my-2"
-        src="avatar.png"
-        alt="it's me"
-      />
+      <StatusBarComp Icon={IoAddSharp} text="Add" size="2xl" />
+      <StatusBarComp Icon={FiSearch} text="Omni-bar" />
+
+      {/*<Group position="center" spacing={40}>
+        <Indicator color="green" size={8} withBorder processing offset={1}>
+          <div className="">Hi, Adel</div>
+          <Avatar
+            className="flex items-center justify-center cursor-pointer "
+            src={Yousra}
+            size="sm"
+            component="a"
+            alt="Yousra Lozy"
+            radius="md"
+          /> 
+        </Indicator>
+      </Group>*/}
       {/* <div className="text-lg font-bold bg-slate-400 p-2 cursor-pointer hover:bg-slate-100 transition-colors duration-200">
         <AiOutlineArrowLeft />
       </div> */}
