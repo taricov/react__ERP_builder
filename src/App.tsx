@@ -4,13 +4,16 @@ import FormBuildingPage from "./pages/FormBuildingPage";
 import HomePage from "./pages/HomePage";
 import StatusBar from "./components/StatusBar";
 import AppTopBar from "./components/AppTopBar";
+import AddNewModulePage from "./pages/AddNewModulePage";
+
 function App() {
   return (
     <div className="">
       <AppTopBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/builder" element={<FormBuildingPage />} />
+        <Route path="app_name/builder" element={<FormBuildingPage />} />
+        <Route path="/add_app" element={<AddNewModulePage />} />
       </Routes>
       <StatusBar />
     </div>
