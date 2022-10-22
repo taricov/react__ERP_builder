@@ -58,7 +58,7 @@ module.exports = {
         base: withOpacity("--color-txt-base"),
       },
       backgroundColor: {
-        hover: "#e9e5ef",
+        hover: "",
         'primary': {
           '50': '#fbfafc',
           '100': '#f6f4f9',

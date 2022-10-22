@@ -13,11 +13,11 @@ const data = [
   { value: "next", label: "Next.js" },
   { value: "blitz", label: "Blitz.js" },
 ];
-const ToolBarFilters = () => {
+const FunctionsBar = () => {
   return (
-    <div className="w-1/3">
+    <div className="text-dimmed">
       <SiteCompDivider title="Filter" pos="left" TheIcon={FiFilter} />
-      <div className="w-full p-2 flex bg-slate-100 rounded-panel">
+      <div className="w-fit p-2 m-0 flex bg-primary-300 rounded-panel">
         <SiteCompDatePicker label="Date" placeholder="Select Date Range" />
         <SiteCompMultiSelect
           data={data}
@@ -36,4 +36,4 @@ const ToolBarFilters = () => {
   );
 };
 
-export default ToolBarFilters;
+export default FunctionsBar;

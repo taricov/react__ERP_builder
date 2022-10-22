@@ -31,7 +31,7 @@ const SiteMultiSelectComp = ({
   disabled = false,
 }: Props) => {
   return (
-    <div>
+    <>
       <MultiSelect
         data={data}
         size={size}
@@ -46,7 +46,7 @@ const SiteMultiSelectComp = ({
         error={err}
         disabled={disabled}
       />
-    </div>
+    </>
   );
 };
 

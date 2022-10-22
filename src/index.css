@@ -71,3 +71,15 @@ html{
   font-size: 10px;
   margin-inline:5px;
 }
+
+.date__custom_styles[data-weekend="true"] {
+  color: #6d2829
+}
+.date__in_range[data-in-range="true"] {
+  background-color: rgb(var(--color-light-2));
+    
+}
+.date__both_ends[data-first-in-range="true"],.date__both_ends[data-last-in-range="true"] {
+  background-color: rgb(var(--color-light-1));
+  color: rgb(var(--color-light-0))
+}

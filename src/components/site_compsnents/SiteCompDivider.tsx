@@ -18,6 +18,7 @@ const SiteCompDivider = ({
   return (
     <>
       <Divider
+        className="mb-1"
         my={my}
         variant={variant}
         labelPosition={pos}

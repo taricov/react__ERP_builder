@@ -1,7 +1,7 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 import SiteCompSearchBar from "./site_compsnents/SiteCompSearchBar";
-import ToolBarFilters from "./ToolBarFilters";
+import FunctionsBarFilters from "./FunctionsBarFilters";
 import { BiRefresh } from "react-icons/bi";
 import { BsArrowLeft } from "react-icons/bs";
 import SiteCompTooltip from "./site_compsnents/SiteCompTooltip";
@@ -15,10 +15,10 @@ import SiteCompTooltip from "./site_compsnents/SiteCompTooltip";
 //TODO: Universal Add Button (not in Builder)
 //TODO: SplitView
 
-const ToolBar = () => {
+const FunctionsBar = () => {
   return (
-    <div className="flex gap-2 items-end">
-      <ToolBarFilters />
+    <div className="flex gap-2 px-2 pb-2 items-end text-cta-dark bg-primary-200 w-fit">
+      <FunctionsBarFilters />
       <SiteCompSearchBar
         label="Search Bar"
         placeholder="Search..."
@@ -28,4 +28,4 @@ const ToolBar = () => {
   );
 };
 
-export default ToolBar;
+export default FunctionsBar;

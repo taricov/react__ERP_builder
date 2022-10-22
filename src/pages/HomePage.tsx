@@ -8,7 +8,6 @@ import { Tooltip } from "@mantine/core";
 import TemplateSpaceConfig from "../components/TemplateSpaceConfig";
 
 const HomePage = () => {
-  //FIXME: Breadcrum at HOME
   //FIXME: DND functionality
   //FIXME: Tooltip not working
 

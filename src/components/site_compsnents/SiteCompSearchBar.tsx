@@ -10,13 +10,13 @@ interface Props {
 }
 const SiteCompSearchBar = ({ label, placeholder, TheIcon }: Props) => {
   return (
-    <div className="w-1/3">
+    <div className="w-fit text-dimmed">
       <SiteCompDivider title="Search" pos="left" TheIcon={FiSearch} />
-      <div className="w-full p-2 bg-slate-100 rounded-panel">
+      <div className="w-full p-2 bg-primary-300 rounded-panel">
         <TextInput
           label={label}
           placeholder={placeholder}
-          icon={<FiSearch />}
+          // icon={<FiSearch />}
           rightSection={<TheIcon />}
           size="xs"
         />

@@ -20,11 +20,11 @@ export default function useGetURL() {
       ? pathCrumbs.map((v, i) => {
           let href = `${x}/${v}`;
           return v !== pathCrumbs[pathCrumbs.length - 1] ? (
-            <Anchor className="text-skin-cta-dark" href={href} key={i}>
+            <Anchor className="text-cta-dark" href={href} key={i}>
               {v === "" ? "Home" : v}
             </Anchor>
           ) : (
-            <span className="home__checker" key={i}>
+            <span className="" key={i}>
               {v}
             </span>
           );

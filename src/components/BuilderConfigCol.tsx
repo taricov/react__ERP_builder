@@ -5,7 +5,7 @@ import BuilderConfigComp from "./BuilderConfigComp";
 
 const BuilderConfigCol = () => {
   return (
-    <div className="w-1/4 rounded-tl-panel rounded-bl-panel bg-white p-2">
+    <div className="w-1/4 rounded-tl-panel rounded-bl-panel bg-skin-hue2 bg-opacity-30 to-skin-hue2 p-2">
       <BuilderConfigColRow>
         <BuilderConfigComp
           id="1"

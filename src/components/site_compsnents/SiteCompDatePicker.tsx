@@ -21,8 +21,21 @@ const SiteCompDatePicker = ({
   ]);
 
   return (
-    <div>
+    <div className="w-full">
       <DateRangePicker
+        classNames={{
+          input: "w-full",
+          dropdown: "text-xs bg-primary-400 h-fit border-none",
+          cell: "",
+          day: "text-sm h-8 hover:bg-primary-300 date__custom_styles date__in_range date__both_ends",
+          weekday: "text-cta-dark",
+          month: "text-cta-dark",
+          calendarHeaderControl: "hover:bg-primary-300",
+          calendarHeaderLevel: "hover:bg-primary-300",
+
+          monthPickerControl: "hover:bg-primary-300",
+          yearPickerControl: "hover:bg-primary-300",
+        }}
         label={label}
         size={size}
         description={desc}
