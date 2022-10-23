@@ -2,6 +2,7 @@ import { Button } from "@mantine/core";
 import { IconType } from "rc-tree/lib/interface";
 import { SVGProps } from "react";
 import { TiSortNumerically } from "react-icons/ti";
+import NoDataFound from "../components/NoDataFound";
 
 // interface btnProps {
 //   title: string;
@@ -22,35 +23,55 @@ import { TiSortNumerically } from "react-icons/ti";
 
 const ModulePage = () => {
   return (
-    <div className="pt-20">
-      <Button.Group>
-        <Button size="xs" radius="xs" className="bg-primary-500">
-          someting
-        </Button>
-        {/* <Button variant="filled" color="green">
+    <div className="pt-20 h-screen">
+      <div className="">
+        <Button.Group>
+          <Button size="xs" radius="xs" className="bg-primary-500">
+            Something
+          </Button>
+          <Button size="xs" radius="xs" className="bg-primary-500">
+            Something
+          </Button>
+          <Button size="xs" radius="xs" className="bg-primary-500">
+            Something
+          </Button>
+          <Button size="xs" radius="xs" className="bg-primary-500">
+            Something
+          </Button>
+          <Button size="xs" radius="xs" className="bg-primary-500">
+            Something
+          </Button>
+          <Button size="xs" radius="xs" className="bg-primary-500">
+            Something
+          </Button>
+        </Button.Group>
+      </div>
+      <NoDataFound />
+
+      {/* <Button variant="filled" color="green">
           First
-        </Button>
-        <Button variant="filled" color="green">
+          </Button>
+          <Button variant="filled" color="green">
           First
-        </Button>
-        <Button variant="filled" color="green">
+          </Button>
+          <Button variant="filled" color="green">
           First
-        </Button>
-        <Button variant="filled" color="green">
+          </Button>
+          <Button variant="filled" color="green">
           First
-        </Button>
-        <Button variant="filled" color="green">
+          </Button>
+          <Button variant="filled" color="green">
           First
-        </Button>
-        <Button variant="filled" color="green">
+          </Button>
+          <Button variant="filled" color="green">
           First
-        </Button>
-        <Button variant="filled" color="green">
+          </Button>
+          <Button variant="filled" color="green">
           First
         </Button> */}
-        {/* {btns.map((btn) => {
+      {/* {btns.map((btn) => {
           <Button
-            title={btn.title}
+          title={btn.title}
             // href={btn.href}
             // leftIcon={btn.Icon}
             // radius="xl"
@@ -62,7 +83,6 @@ const ModulePage = () => {
             // target="_blank"
           />;
         })} */}
-      </Button.Group>
     </div>
   );
 };

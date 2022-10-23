@@ -17,6 +17,7 @@ const HelperTools = () => {
       <StatusBarComp where="Status" Icon={BiStopwatch} text="Watch" />
       <StatusBarComp where="Status" Icon={BiSupport} text="Support" />
       <StatusBarComp where="Status" Icon={VscFeedback} text="Feedback" />
+      {/* Calendar */}
     </div>
   );
 };
