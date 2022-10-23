@@ -6,7 +6,9 @@ import StatusBar from "./components/StatusBar";
 import AppTopBar from "./components/AppTopBar";
 import AddNewModulePage from "./pages/AddNewModulePage";
 import ShortcutsModal from "./components/ShortcutsModal";
-import ModuleConfigsPage from "./pages/ModuleConfigsPage";
+import ModulePage from "./pages/ModulePage";
+import LoginPage from "./pages/LoginPage";
+import Error404Page from "./pages/Error404Page";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="app_name/builder" element={<FormBuildingPage />} />
         <Route path="/add_app" element={<AddNewModulePage />} />
-        <Route path="/app_config" element={<ModuleConfigsPage />} />
+        <Route path="/module_name" element={<ModulePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/error" element={<Error404Page />} />
       </Routes>
       <StatusBar />
     </div>
