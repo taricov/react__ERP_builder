@@ -2,6 +2,8 @@ import { Button } from "@mantine/core";
 import { IconType } from "rc-tree/lib/interface";
 import { SVGProps } from "react";
 import { TiSortNumerically } from "react-icons/ti";
+import FunctionsBar from "../components/FunctionsBar";
+import ModuleMetaData from "../components/ModuleMetaData";
 import NoDataFound from "../components/NoDataFound";
 
 // interface btnProps {
@@ -23,7 +25,9 @@ import NoDataFound from "../components/NoDataFound";
 
 const ModulePage = () => {
   return (
-    <div className="pt-20 h-screen">
+    <div className="h-screen pt-10 flex flex-col">
+      <FunctionsBar />
+      <ModuleMetaData />
       <div className="">
         <Button.Group>
           <Button size="xs" radius="xs" className="bg-primary-500">

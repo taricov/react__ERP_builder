@@ -1,3 +1,4 @@
+import { Indicator } from "@mantine/core";
 import React from "react";
 import SiteCompMenu from "./site_compsnents/SiteCompMenu";
 
@@ -9,12 +10,26 @@ const fileMenu = [
 
 const AppMenuBar = () => {
   return (
-    <div className="w-full flex items-center content-start bg-primary-800">
-      <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
-      <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
-      <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
-      <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
-      <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
+    <div className="w-full flex items-center justify-between bg-primary-800">
+      <div className="flex items-center">
+        <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
+        <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
+        <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
+        <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
+        <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
+      </div>
+      <div className="flex pr-5">
+        <Indicator
+          processing
+          color={"green"}
+          position="middle-end"
+          offset={-5}
+          size={6}
+        >
+          <SiteCompMenu buttonTitle="Hi, Taric" w={60} menuItems={fileMenu} />
+          {/* <div className="flex">Hi, Taric</div> */}
+        </Indicator>
+      </div>
     </div>
   );
 };

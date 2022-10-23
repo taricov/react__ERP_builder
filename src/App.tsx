@@ -9,6 +9,7 @@ import ShortcutsModal from "./components/ShortcutsModal";
 import ModulePage from "./pages/ModulePage";
 import LoginPage from "./pages/LoginPage";
 import Error404Page from "./pages/Error404Page";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/error" element={<Error404Page />} />
       </Routes>
+      {/* <NavBar /> */}
       <StatusBar />
     </div>
   );

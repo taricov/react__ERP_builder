@@ -1,7 +1,7 @@
 import { Avatar, Group, Indicator } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import React from "react";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineSetting } from "react-icons/ai";
 import { BiRefresh } from "react-icons/bi";
 import { IoAddSharp } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
@@ -16,23 +16,32 @@ import StatusBarComp from "./StatusBarComp";
 // const summonSpotLight = useHotkeys()
 
 const AppToolBar = () => {
-  let Notification = false;
+  let Notification = true;
   return (
     <div className="h-full flex bg-primary-700 items-center ">
-      <StatusBarComp Icon={AiOutlineArrowLeft} text="Back" />
-      <StatusBarComp Icon={BiRefresh} text="Sync" />
-      {Notification ? (
-        <StatusBarComp
-          Icon={MdOutlineNotificationsActive}
-          text="Notifications"
-        />
-      ) : (
-        <StatusBarComp Icon={MdOutlineNotificationsOff} text="None" />
-      )}
-      <StatusBarComp Icon={BiRefresh} text="Sync" />
-      <StatusBarComp Icon={IoAddSharp} text="Add" size="2xl" />
-      <StatusBarComp Icon={FiSearch} text="Omni-bar" />
-
+      <div className="flex items-center justify-start w-1/2">
+        <StatusBarComp Icon={AiOutlineArrowLeft} text="Back" />
+      </div>
+      <div className="flex items-center justify-end w-1/2">
+        <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
+        <StatusBarComp Icon={FiSearch} text="" />
+        {Notification ? (
+          <Indicator
+            showZero={false}
+            // label={222}
+            overflowCount={10}
+            offset={4}
+            size={6}
+            position="top-end"
+          >
+            <StatusBarComp Icon={MdOutlineNotificationsActive} text="" />
+          </Indicator>
+        ) : (
+          <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
+        )}
+        <StatusBarComp Icon={BiRefresh} size="xl" text="" />
+        <StatusBarComp Icon={AiOutlineSetting} text="" />
+      </div>
       {/*<Group position="center" spacing={40}>
         <Indicator color="green" size={8} withBorder processing offset={1}>
           <div className="">Hi, Adel</div>

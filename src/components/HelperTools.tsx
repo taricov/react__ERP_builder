@@ -1,7 +1,11 @@
 import React from "react";
 import { BiStopwatch, BiSupport } from "react-icons/bi";
+import { BsCalendarDate } from "react-icons/bs";
 import { CgNotes } from "react-icons/cg";
-import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import {
+  MdOutlineCalendarViewMonth,
+  MdOutlineTipsAndUpdates,
+} from "react-icons/md";
 import { VscFeedback } from "react-icons/vsc";
 import StatusBarComp from "./StatusBarComp";
 
@@ -17,7 +21,11 @@ const HelperTools = () => {
       <StatusBarComp where="Status" Icon={BiStopwatch} text="Watch" />
       <StatusBarComp where="Status" Icon={BiSupport} text="Support" />
       <StatusBarComp where="Status" Icon={VscFeedback} text="Feedback" />
-      {/* Calendar */}
+      <StatusBarComp
+        where="Status"
+        Icon={MdOutlineCalendarViewMonth}
+        text="Calendar"
+      />
     </div>
   );
 };

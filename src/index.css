@@ -83,3 +83,7 @@ html{
   background-color: rgb(var(--color-light-1));
   color: rgb(var(--color-light-0))
 }
+
+td{
+  padding: 6px !important;
+}
