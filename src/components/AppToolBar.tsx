@@ -18,21 +18,24 @@ import StatusBarComp from "./StatusBarComp";
 const AppToolBar = () => {
   let Notification = true;
   return (
-    <div className="h-full flex bg-primary-700 items-center ">
-      <div className="flex items-center justify-start w-1/2">
-        <StatusBarComp Icon={AiOutlineArrowLeft} text="Back" />
+    <div className="h-8 flex bg-primary-700 items-center ">
+      <div className="flex items-center justify-start w-1/2 h-full">
+        <StatusBarComp Icon={AiOutlineArrowLeft} text="" />
       </div>
-      <div className="flex items-center justify-end w-1/2">
-        <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
+      <div className="flex items-center justify-end w-1/2 h-full">
+        <div className="h-full bg-primary-500">
+          <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
+        </div>
         <StatusBarComp Icon={FiSearch} text="" />
         {Notification ? (
           <Indicator
             showZero={false}
-            // label={222}
-            overflowCount={10}
-            offset={4}
+            offset={8}
             size={6}
+            color="yellow"
+            processing
             position="top-end"
+            className=" h-full"
           >
             <StatusBarComp Icon={MdOutlineNotificationsActive} text="" />
           </Indicator>

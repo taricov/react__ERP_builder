@@ -27,7 +27,7 @@ const SiteCompMenu = ({
         offset={offset}
       >
         <Menu.Target>
-          <Text className="font-light px-2 py-0 rounded-none text-sm cursor-pointer hover:bg-slate-500">
+          <Text className="font-light px-2 py-0 rounded-none text-sm transition-colors duration-trans cursor-pointer hover:bg-slate-500">
             {buttonTitle}
           </Text>
         </Menu.Target>

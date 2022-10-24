@@ -85,5 +85,6 @@ html{
 }
 
 td{
-  padding: 6px !important;
+  padding: 0px !important;
+  text-align: center;
 }
