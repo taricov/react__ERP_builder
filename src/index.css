@@ -88,3 +88,10 @@ td{
   padding: 0px !important;
   text-align: center;
 }
+.hide__elements{
+  opacity: 0;
+  transition: .4s;
+}
+.collapse__parent{
+  height: 0; 
+}

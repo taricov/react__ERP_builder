@@ -60,6 +60,7 @@ module.exports = {
       },
       backgroundColor: {
         hover: "",
+        "main-bg": "bg-gradient-to-r from-skin-hue2 to-skin-hue0",
         'primary': {
           '50': '#fbfafc',
           '100': '#f6f4f9',

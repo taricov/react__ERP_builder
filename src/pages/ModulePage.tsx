@@ -25,7 +25,7 @@ import NoDataFound from "../components/NoDataFound";
 
 const ModulePage = () => {
   return (
-    <div className="h-screen pt-10 flex flex-col">
+    <div className="h-screen pt-10 flex flex-col bg-gradient-to-r from-skin-hue2 to-skin-hue0">
       <FunctionsBar />
       <ModuleMetaData />
       <div className="">

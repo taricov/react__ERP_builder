@@ -1,5 +1,6 @@
 import { Table } from "@mantine/core";
-import React from "react";
+import React, { useLayoutEffect } from "react";
+import $ from "jquery";
 
 let moduleMeta = [
   {
@@ -8,7 +9,7 @@ let moduleMeta = [
       created: "10/04/2022",
       title: "Module Title Goes Here",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quasi hic quis minima modi fugiat cum distinctio vitae, porro corrupti?",
+        "Lorem ipsum dolor sit is minima modi fugiat cum distinctio vitae, porro corrupti?",
       storageConsumed: "30MB",
       storageAllocated: "50MB",
       storageRemaining: "20MB",
@@ -16,20 +17,35 @@ let moduleMeta = [
     },
   },
 ];
+function toggleOnClick() {
+  $("#collapse__icon").click(function () {
+    const $this = $(this);
+    if ($this.parent().height() === 0) {
+      $this.parent().removeClass("collapse__parent");
+      $this.siblings().removeClass("hide__elements");
+    } else {
+      $this.parent().addClass("collapse__parent");
+      $this.siblings().addClass("hide__elements");
+    }
+  });
+}
 
 const ModuleMetaData = () => {
+  useLayoutEffect(() => {
+    toggleOnClick();
+  });
   let modObj = Object.values(moduleMeta[0])[0];
-  console.log(modObj);
   return (
-    <div className="flex items-center justify-center relative">
+    <div className="flex items-center justify-center relative pt-3 transition-all duration-trans h-80 overflow-hidden opacity-100">
       <div
+        id="collapse__icon"
         className="w-0 h-0 
-        absolute top-0 right-0 cursor-pointer
-    border-t-[15px] border-t-purple-200
-    border-r-[15px] border-r-transparent
-    border-b-[15px] border-b-transparent
+        absolute -top-1 right-0 cursor-pointer
+    border-t-[10px] border-t-purple-200
+    border-r-[10px] border-r-transparent
+    border-b-[10px] border-b-transparent
     rotate-90
-    mr-4
+    mr-2
     "
       ></div>
       <Table
@@ -40,7 +56,9 @@ const ModuleMetaData = () => {
         highlightOnHover
         captionSide="top"
       >
-        <caption className="text-sm w-3/4 m-auto">{modObj.description}</caption>
+        <caption className="text-sm w-3/4 m-auto cursor-default">
+          {modObj.description}
+        </caption>
         <tbody>
           <tr>
             <td className="w-1/2">Title:</td>
