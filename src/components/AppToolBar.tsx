@@ -1,8 +1,7 @@
 import { Avatar, Group, Indicator } from "@mantine/core";
-import { useHotkeys } from "@mantine/hooks";
+import { useHotkeys, useToggle } from "@mantine/hooks";
 import React from "react";
 import { AiOutlineArrowLeft, AiOutlineSetting } from "react-icons/ai";
-import { BiRefresh } from "react-icons/bi";
 import { IoAddSharp } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import Yousra from "../assets/2.jpg";
@@ -12,11 +11,14 @@ import {
   MdOutlineNotificationsOff,
 } from "react-icons/md";
 import StatusBarComp from "./StatusBarComp";
+import { VscSync, VscSyncIgnored } from "react-icons/vsc";
+import { openSpotlight } from "@mantine/spotlight";
 
 // const summonSpotLight = useHotkeys()
 
 const AppToolBar = () => {
   let Notification = true;
+  const [isSynced, setSynced] = useToggle([VscSync, VscSyncIgnored]);
   return (
     <div className="h-8 flex bg-primary-700 items-center ">
       <div className="flex items-center justify-start w-1/2 h-full">
@@ -26,7 +28,11 @@ const AppToolBar = () => {
         <div className="h-full bg-primary-500">
           <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
         </div>
-        <StatusBarComp Icon={FiSearch} text="" />
+        <StatusBarComp
+          Icon={FiSearch}
+          text=""
+          onClick={() => openSpotlight()}
+        />
         {Notification ? (
           <Indicator
             showZero={false}
@@ -42,7 +48,8 @@ const AppToolBar = () => {
         ) : (
           <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
         )}
-        <StatusBarComp Icon={BiRefresh} size="xl" text="" />
+        {/* <StatusBarComp Icon={isSynced} size="" text="" /> */}
+        <StatusBarComp Icon={VscSyncIgnored} text="" />
         <StatusBarComp Icon={AiOutlineSetting} text="" />
       </div>
       {/*<Group position="center" spacing={40}>

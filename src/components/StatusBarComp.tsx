@@ -7,6 +7,7 @@ interface Props {
   rightPad?: string | undefined;
   size?: string;
   where?: string;
+  onClick?: any;
 }
 const StatusBarComp = ({
   Icon,
@@ -15,6 +16,7 @@ const StatusBarComp = ({
   statusColor = undefined, //for Updated status in the StatusBar
   rightPad = "pr-0",
   where = "topBar",
+  onClick,
 }: Props) => {
   let hoveEffect =
     where === "Status" ? "hover:contrast-0" : "hover:bg-primary-600";

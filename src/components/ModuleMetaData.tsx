@@ -36,7 +36,7 @@ const ModuleMetaData = () => {
   });
   let modObj = Object.values(moduleMeta[0])[0];
   return (
-    <div className="flex items-center justify-center relative pt-3 transition-all duration-trans h-80 overflow-hidden opacity-100">
+    <div className="flex items-center justify-center relative pt-3 transition-all duration-trans h-60 overflow-hidden opacity-100">
       <div
         id="collapse__icon"
         className="w-0 h-0 
