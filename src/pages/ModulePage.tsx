@@ -35,17 +35,17 @@ const ModulePage = () => {
     <div className="h-screen pt-10 flex flex-col bg-gradient-to-r from-skin-hue2 to-skin-hue0">
       <FunctionsBar />
       <ModuleMetaData />
-      <div className="w-full h-5">
-        <Button
+      {/* <div className="w-full h-5"> */}
+      {/* <Button
           size="xs"
           radius="xs"
           className="bg-primary-500 hover:bg-primary-600 trabsition-color duration-trans"
         >
           <AiOutlineSetting />
           <span className="px-1">Settings</span>
-        </Button>
-        {/* <StatusBarComp Icon={AiOutlineSetting} text="" /> */}
-      </div>
+        </Button> */}
+      {/* <StatusBarComp Icon={AiOutlineSetting} text="" /> */}
+      {/* </div> */}
       {/* <div className="mx-4">
         <Button.Group>
           <Button

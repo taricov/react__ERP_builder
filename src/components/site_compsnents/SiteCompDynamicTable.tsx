@@ -1,5 +1,5 @@
-import { Menu, SimpleGrid } from "@mantine/core";
-import { Button, Dropdown, Popconfirm } from "antd";
+import { SimpleGrid } from "@mantine/core";
+import { Button, Dropdown, Popconfirm, Menu } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
 import { ExpandableConfig, TableRowSelection } from "antd/lib/table/interface";
@@ -10,6 +10,38 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { ImBin } from "react-icons/im";
 import { BiDownArrow } from "react-icons/bi";
+import { MenuProps } from "rc-menu";
+
+const actionItemList: MenuProps["items"] = [
+  {
+    label: <a href="#">Edit</a>,
+    key: "00",
+  },
+  {
+    label: <a href="#">Duplicate</a>,
+    key: "1",
+  },
+  {
+    type: "divider",
+  },
+  {
+    label: <a href="#">Delete</a>,
+    onClick: () => console.log("d"),
+    key: "3",
+    style: { color: "red" },
+  },
+];
+
+// <Menu>
+//   <Menu.Item key="2">2nd item</Menu.Item>
+//   <Menu.Item key="2">2nd item</Menu.Item>
+//   <Menu.Item key="0" disabled itemType={"divider"}></Menu.Item>
+//   <Menu.Item key="1" onClick={() => console.log("dd")}>
+//     Delete
+//   </Menu.Item>
+// </Menu>
+// );
+
 interface DataType {
   key: React.Key;
   name: string;
@@ -124,14 +156,14 @@ const SiteCompDynamicTable = ({
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [loadingg, setLoading] = useState(false);
 
-  const start = () => {
-    setLoading(true);
-    // ajax request after empty completing
-    setTimeout(() => {
-      setSelectedRowKeys([]);
-      setLoading(false);
-    }, 1000);
-  };
+  // const start = () => {
+  //   setLoading(true);
+  //   // ajax request after empty completing
+  //   setTimeout(() => {
+  //     setSelectedRowKeys([]);
+  //     setLoading(false);
+  //   }, 1000);
+  // };
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -145,39 +177,66 @@ const SiteCompDynamicTable = ({
   const hasSelected = selectedRowKeys.length > 0;
 
   //Actions Btn onSelect()
+  const [current, setCurrent] = useState("mail");
 
-  const menu: JSX.Element = (
-    <Menu>
-      <Menu.Item key="1">1st item</Menu.Item>
-      <Menu.Item key="2">2nd item</Menu.Item>
-      <Menu.Item key="3">3rd item</Menu.Item>
-    </Menu>
+  const menu = (
+    <Menu
+      className="p-0"
+      items={actionItemList}
+      onClick={() => console.log("hi there!")}
+    />
   );
+  const onClick: MenuProps["onClick"] = (e) => {
+    console.log("click ", e);
+    setCurrent(e.key);
+  };
 
   return (
     <div className="w-5/6 m-auto text-xl">
-      <div style={{ marginBottom: 16 }}>
-        <Button
+      <div className="flex items-center justify-between w-full">
+        {/* <Button
           type="primary"
           onClick={start}
           disabled={!hasSelected}
           // loading={loadingg}
         >
           Reload
-        </Button>
+        </Button> */}
+        <div className="flex items-center mb-2">
+          <Dropdown
+            className="flex items-center justify-center gap-2 "
+            overlay={menu}
+            trigger={["click"]}
+            placement="topLeft"
+            transitionName="slide"
+            disabled={!hasSelected}
+          >
+            <Button
+              className="bg-primary-600 border-none hover:bg-primary-500"
+              type="primary"
+              // onClick={start}
+              disabled={!hasSelected}
+              size="small"
+            >
+              Actions <BsArrowRightSquareFill />
+            </Button>
+          </Dropdown>
 
-        <Dropdown
-          overlay={menu}
-          className="flex items-center justify-center gap-2"
-        >
-          <Button>
+          <span className="ml-3 text-sm">
+            {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
+          </span>
+        </div>
+        <div className="">
+          <Button
+            className="bg-primary-600 border-none hover:bg-primary-500"
+            type="primary"
+            // onClick={start}
+            disabled={!hasSelected}
+            size="small"
+          >
             Actions <BsArrowRightSquareFill />
           </Button>
-        </Dropdown>
-
-        <span className="ml-3 text-sm">
-          {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
-        </span>
+        </div>
       </div>
       <Table
         rowClassName={(record, index) =>

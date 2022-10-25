@@ -56,7 +56,7 @@ const ModuleMetaData = () => {
         highlightOnHover
         captionSide="top"
       >
-        <caption className="text-sm w-3/4 m-auto cursor-default">
+        <caption className="text-sm w-3/4 m-auto cursor-default text-center">
           {modObj.description}
         </caption>
         <tbody>

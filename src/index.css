@@ -127,3 +127,11 @@ opacity: .6;
 
       transition: all .4s;
     } */
+
+.ant-table-column-sort{
+background-color: #6d2829 
+    }
+
+.ant-table-thead th{
+background-color: lavender !important
+}
