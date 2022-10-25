@@ -22,7 +22,7 @@ function App() {
         <Route path="/add_app" element={<AddNewModulePage />} />
         <Route path="/module_name" element={<ModulePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/error" element={<Error404Page />} />
+        <Route path="*" element={<Error404Page />} />
       </Routes>
       {/* <NavBar /> */}
       <StatusBar />

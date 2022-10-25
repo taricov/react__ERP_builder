@@ -17,10 +17,9 @@ interface Props {
   color?: string;
   disabled?: boolean;
   rel?: string;
-  component?: React.ForwardRefExoticComponent<
-    LinkProps & React.RefAttributes<HTMLAnchorElement>
-  >;
+  component?: any;
   target?: string;
+  href?: any;
   // to: HTMLAnchorElement | string | undefined;
   Icon?: React.ReactNode;
   laoding?: boolean;
@@ -34,19 +33,25 @@ const SiteCompBtn = ({
   // loading = false,
   color = "green",
   Icon = undefined,
+  component = "a",
   rel = "noopener noreferrer",
   target = "_blank",
-}: // component = { Link },
-Props) => {
+  href,
+}: Props) => {
   return (
     <>
       <Button
-        color={color}
+        className={`${color}`}
+        // color={color}
+        component={component}
+        rel={rel}
+        target={target}
         radius={radius}
         title={title}
         variant={variant}
         disabled={disabled}
         leftIcon={Icon}
+        href={href}
         // loading={loading}
       >
         {title}
