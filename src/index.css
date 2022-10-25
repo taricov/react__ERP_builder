@@ -133,5 +133,6 @@ background-color: #6d2829
     }
 
 .ant-table-thead th{
-background-color: lavender !important
+background-color: lavender !important;
+padding: .6rem 0 !important;
 }

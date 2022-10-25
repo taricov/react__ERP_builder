@@ -49,14 +49,15 @@ const ModuleMetaData = () => {
     "
       ></div>
       <Table
-        className="w-1/2 cursor-pointer m-auto my-2"
+        className="w-1/2 cursor-pointer m-auto mt-2 -mb-10 "
         withColumnBorders
         withBorder
         fontSize={11}
         highlightOnHover
-        captionSide="top"
+        // captionSide="top"
+        // contentEditable
       >
-        <caption className="text-sm w-3/4 m-auto cursor-default text-center">
+        <caption className="text-sm w-3/4 mx-auto mb-0   cursor-default text-center ">
           {modObj.description}
         </caption>
         <tbody>
@@ -65,20 +66,20 @@ const ModuleMetaData = () => {
             <td className="w-1/2">{modObj.title}</td>
           </tr>
           <tr>
-            <td className="w-1/2">Created At:</td>
-            <td className="w-1/2">{modObj.created}</td>
+            <td>Created At:</td>
+            <td>{modObj.created}</td>
           </tr>
           <tr>
-            <td className="w-1/2">Consumned:</td>
-            <td className="w-1/2">{modObj.storageConsumed}</td>
+            <td>Consumned:</td>
+            <td>{modObj.storageConsumed}</td>
           </tr>
           <tr>
-            <td className="w-1/2">Remaining:</td>
-            <td className="w-1/2">{modObj.storageRemaining}</td>
+            <td>Remaining:</td>
+            <td>{modObj.storageRemaining}</td>
           </tr>
           <tr>
-            <td className="w-1/2">Records Count:</td>
-            <td className="w-1/2">{modObj.recordsCount}</td>
+            <td>Records Count:</td>
+            <td>{modObj.recordsCount}</td>
           </tr>
         </tbody>
       </Table>

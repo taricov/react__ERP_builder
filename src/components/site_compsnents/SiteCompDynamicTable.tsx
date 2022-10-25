@@ -86,7 +86,6 @@ const columns: ColumnsType<DataType> = [
     align: "center",
     fixed: false,
     width: 100,
-
     render: () => (
       <div className="flex justify-center items-center gap-2">
         <a href="#">
@@ -139,7 +138,7 @@ const SiteCompDynamicTable = ({
         scrollToFirstRowOnChange?: boolean | undefined;
       })
     | undefined
-  >({ y: 300 });
+  >({ y: 250 });
   const [rowSelection, setRowSelection] = useState<
     TableRowSelection<DataType> | undefined
   >();

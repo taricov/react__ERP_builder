@@ -78,11 +78,7 @@ const ModulePage = () => {
           </Button>
         </Button.Group>
       </div> */}
-      {requestRes && noData ? (
-        <NoDataFound />
-      ) : (
-        <SiteCompDynamicTable assignedSize="large" />
-      )}
+      {requestRes && noData ? <NoDataFound /> : <SiteCompDynamicTable />}
       {/* <Pagination total={10} />; */}
 
       {/* <Button variant="filled" color="green">
