@@ -1,14 +1,15 @@
-import { SimpleGrid } from "@mantine/core";
-import { Button, Popconfirm } from "antd";
+import { Menu, SimpleGrid } from "@mantine/core";
+import { Button, Dropdown, Popconfirm } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
 import { ExpandableConfig, TableRowSelection } from "antd/lib/table/interface";
 import { PanelRender } from "rc-table/lib/interface";
-import React, { useState } from "react";
-import { BsTrash } from "react-icons/bs";
+import React, { MouseEventHandler, useState } from "react";
+import { BsArrowRightSquareFill, BsTrash } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { ImBin } from "react-icons/im";
+import { BiDownArrow } from "react-icons/bi";
 interface DataType {
   key: React.Key;
   name: string;
@@ -21,6 +22,7 @@ const columns: ColumnsType<DataType> = [
     title: "Name",
     dataIndex: "name",
     align: "center",
+
     // onFilter: (value, record) => record.name.includes(value),
   },
   {
@@ -78,7 +80,7 @@ for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
     name: `Edward King ${i}`,
-    age: 32,
+    age: 22,
     address: `London, Park Lane no. ${i}`,
   });
 }
@@ -142,6 +144,16 @@ const SiteCompDynamicTable = ({
   };
   const hasSelected = selectedRowKeys.length > 0;
 
+  //Actions Btn onSelect()
+
+  const menu: JSX.Element = (
+    <Menu>
+      <Menu.Item key="1">1st item</Menu.Item>
+      <Menu.Item key="2">2nd item</Menu.Item>
+      <Menu.Item key="3">3rd item</Menu.Item>
+    </Menu>
+  );
+
   return (
     <div className="w-5/6 m-auto text-xl">
       <div style={{ marginBottom: 16 }}>
@@ -149,17 +161,29 @@ const SiteCompDynamicTable = ({
           type="primary"
           onClick={start}
           disabled={!hasSelected}
-          loading={loadingg}
+          // loading={loadingg}
         >
           Reload
         </Button>
+
+        <Dropdown
+          overlay={menu}
+          className="flex items-center justify-center gap-2"
+        >
+          <Button>
+            Actions <BsArrowRightSquareFill />
+          </Button>
+        </Dropdown>
+
         <span className="ml-3 text-sm">
           {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
         </span>
       </div>
       <Table
         rowClassName={(record, index) =>
-          index % 2 === 0 ? "cursor-pointer bg-primary-300" : "cursor-pointer"
+          index % 2 === 0
+            ? "cursor-pointer bg-primary-300"
+            : "cursor-pointer bg-primary-200"
         }
         columns={columns}
         dataSource={data}
@@ -171,7 +195,7 @@ const SiteCompDynamicTable = ({
             `${range[0]}-${range[1]} of ${total} items`,
           size: "small",
           style: {
-            color: "rgb(103, 116, 142)",
+            // color: "rgb(103, 116, 142)",
             fontSize: "1rem",
             textAlign: "left",
           },

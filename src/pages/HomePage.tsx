@@ -6,6 +6,7 @@ import { VscFileSubmodule } from "react-icons/vsc";
 import SiteCompTooltip from "../components/site_compsnents/SiteCompTooltip";
 import { Tooltip } from "@mantine/core";
 import TemplateSpaceConfig from "../components/TemplateSpaceConfig";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   //FIXME: DND functionality
@@ -13,7 +14,7 @@ const HomePage = () => {
 
   return (
     <div className="relative w-screen h-screen flex flex-col items-center content-center">
-      <TemplateSpaceConfig />
+      {/* <TemplateSpaceConfig /> */}
       <main className="flex items-center content-center gap-5 m-auto w-full h-full bg-gradient-to-r from-skin-hue2 to-skin-hue0  pt-10">
         <div className="w-4/5 flex items-center content-center gap-5 m-auto ">
           {/* <SiteCompTooltip label="anything"> */}
