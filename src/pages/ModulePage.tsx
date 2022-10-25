@@ -1,4 +1,6 @@
 import { Button } from "@mantine/core";
+import { Pagination } from "antd";
+import "antd/dist/antd.css";
 import { IconType } from "rc-tree/lib/interface";
 import { SVGProps } from "react";
 import { AiOutlineSetting } from "react-icons/ai";
@@ -76,7 +78,12 @@ const ModulePage = () => {
           </Button>
         </Button.Group>
       </div> */}
-      {requestRes && noData ? <NoDataFound /> : <SiteCompDynamicTable />}
+      {requestRes && noData ? (
+        <NoDataFound />
+      ) : (
+        <SiteCompDynamicTable assignedSize="large" />
+      )}
+      {/* <Pagination total={10} />; */}
 
       {/* <Button variant="filled" color="green">
           First

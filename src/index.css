@@ -95,3 +95,35 @@ td{
 .collapse__parent{
   height: 0; 
 }
+
+/* .ant-table-container{
+
+} */
+/* 
+.ant-pagination.ant-table-pagination>li:hover{
+opacity: .6;
+}
+.ant-pagination-options{
+  margin-left: 15rem;
+  padding: 10px;
+}
+.ant-pagination-options div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  /* background-color: #6d2829; */
+  .ant-pagination-next button>span, .ant-pagination-prev button>span{
+    display: block}
+    .ant-pagination-next button, .ant-pagination-prev button{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* .ant-pagination>li{
+     border-radius: 4px;
+
+      transition: all .4s;
+    } */
