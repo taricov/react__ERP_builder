@@ -61,9 +61,11 @@ const columns: ColumnsType<DataType> = [
   {
     title: "Age",
     dataIndex: "age",
+    width: 100,
     align: "center",
     // filteredValue: filteredInfo.name || null,
     sorter: (a, b) => a.name.length - b.name.length,
+
     // sortOrder: sortedInfo.columnKey === "name" && sortedInfo.order,
     //   }
   },
