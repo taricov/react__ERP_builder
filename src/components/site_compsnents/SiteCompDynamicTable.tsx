@@ -1,11 +1,13 @@
 import { SimpleGrid } from "@mantine/core";
-import { Button } from "antd";
+import { Button, Popconfirm } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
 import { ExpandableConfig, TableRowSelection } from "antd/lib/table/interface";
 import { PanelRender } from "rc-table/lib/interface";
 import React, { useState } from "react";
 import { BsTrash } from "react-icons/bs";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FiEdit } from "react-icons/fi";
 import { ImBin } from "react-icons/im";
 interface DataType {
   key: React.Key;
@@ -34,6 +36,14 @@ const columns: ColumnsType<DataType> = [
     title: "Address",
     dataIndex: "address",
     align: "center",
+    // render: (text, _, index) => (
+    //   <input value={text} onChange={(v) => onChange(v, index)} />
+    // ),
+
+    // shouldCellUpdate: (record, prevRecord) => {
+    //   console.log(record.name, prevRecord.name);
+    //   return record.name !== prevRecord.name;
+    // },
   },
   {
     title: "Action",
@@ -42,11 +52,22 @@ const columns: ColumnsType<DataType> = [
     // fixed: "right",
     // width: 100,
     render: () => (
-      <div className="flex justify-center gap-2">
-        <a href="#">action</a>
+      <div className="flex justify-center items-center gap-2">
         <a href="#">
-          <BsTrash className="text-xs" />
+          <FiEdit />
         </a>
+
+        {/* render: (_, record: { key: React.Key }) =>
+        dataSource.length >= 1 ? (
+          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            <a>Delete</a>
+          </Popconfirm>
+        ) : null, */}
+        <Popconfirm title="Sure to delete?">
+          <a>
+            <FaRegTrashAlt className="text-sm" />
+          </a>
+        </Popconfirm>
       </div>
     ),
   },
