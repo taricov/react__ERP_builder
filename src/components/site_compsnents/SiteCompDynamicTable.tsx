@@ -11,6 +11,7 @@ import { FiEdit } from "react-icons/fi";
 import { ImBin } from "react-icons/im";
 import { BiDownArrow } from "react-icons/bi";
 import { MenuProps } from "rc-menu";
+import { AiOutlineSetting } from "react-icons/ai";
 
 const actionItemList: MenuProps["items"] = [
   {
@@ -80,11 +81,12 @@ const columns: ColumnsType<DataType> = [
     // },
   },
   {
-    title: "Action",
+    title: "Actions",
     key: "operation",
     align: "center",
-    // fixed: "right",
-    // width: 100,
+    fixed: false,
+    width: 100,
+
     render: () => (
       <div className="flex justify-center items-center gap-2">
         <a href="#">
@@ -156,14 +158,14 @@ const SiteCompDynamicTable = ({
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [loadingg, setLoading] = useState(false);
 
-  // const start = () => {
-  //   setLoading(true);
-  //   // ajax request after empty completing
-  //   setTimeout(() => {
-  //     setSelectedRowKeys([]);
-  //     setLoading(false);
-  //   }, 1000);
-  // };
+  const start = () => {
+    setLoading(true);
+    // ajax request after empty completing
+    setTimeout(() => {
+      setSelectedRowKeys([]);
+      setLoading(false);
+    }, 1000);
+  };
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log("selectedRowKeys changed: ", newSelectedRowKeys);
@@ -202,7 +204,7 @@ const SiteCompDynamicTable = ({
         >
           Reload
         </Button> */}
-        <div className="flex items-center mb-2">
+        <div className="flex items-center justify-between mb-2">
           <Dropdown
             className="flex items-center justify-center gap-2 "
             overlay={menu}
@@ -214,7 +216,6 @@ const SiteCompDynamicTable = ({
             <Button
               className="bg-primary-600 border-none hover:bg-primary-500"
               type="primary"
-              // onClick={start}
               disabled={!hasSelected}
               size="small"
             >
@@ -226,15 +227,24 @@ const SiteCompDynamicTable = ({
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ""}
           </span>
         </div>
-        <div className="">
+        <div className="flex items-center justify-center gap-1">
           <Button
-            className="bg-primary-600 border-none hover:bg-primary-500"
+            className="bg-primary-600 border-none hover:bg-primary-500 focus:bg-primary-500 "
             type="primary"
-            // onClick={start}
-            disabled={!hasSelected}
+            onClick={start}
             size="small"
+            loading={loadingg}
           >
-            Actions <BsArrowRightSquareFill />
+            Edit
+          </Button>
+          <Button
+            className="bg-primary-600 border-none hover:bg-primary-500 focus:bg-primary-500 "
+            type="primary"
+            onClick={start}
+            size="small"
+            loading={loadingg}
+          >
+            <AiOutlineSetting />
           </Button>
         </div>
       </div>
