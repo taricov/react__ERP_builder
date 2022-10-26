@@ -5,6 +5,10 @@ const SiteCompModal = ({ opened, setOpened, children }: any) => {
 
   return (
     <Modal
+      classNames={{
+        modal: "bg-gradient-to-r from-skin-hue2 to-skin-hue0 w-full",
+      }}
+      size={"80%"}
       opened={opened}
       onClose={setOpened}
       overlayColor={theme.colors.dark[9]}

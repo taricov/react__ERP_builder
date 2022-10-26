@@ -3,14 +3,15 @@ import ShortcutsRow from "./ShortcutsRow";
 
 interface Props {
   title: string;
+  children: JSX.Element;
 }
 
-const ShortcutsSection = ({ title }: Props) => {
+const ShortcutsSection = ({ title, children }: Props) => {
   return (
     <>
       <div className="w-full py-2 flex flex-col items-start border-t-1">
-        <h3 className="w-full mb-2 font-">{title}</h3>
-        <ShortcutsRow desc="gsfdsfs effe" shCuts={["M", "T", "3"]} />
+        <h3 className="w-full mb-2 font-bold">{title}</h3>
+        {children}
       </div>
     </>
   );

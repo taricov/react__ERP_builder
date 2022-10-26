@@ -14,7 +14,7 @@ const ButtonCard = forwardRef<HTMLDivElement, Props>(
         <a
           // ref={ref}
           href={href}
-          className="block text-white h-fit w-1/3 text-bg-rev hover:text-white text-lg p-6 bg-primary-900 rounded-panel border shadow-2xl hover:bg-primary-800 hover:-translate-y-2 border-none transition-all duration-trans text-center"
+          className="mx-2 block text-white h-fit w-1/3 text-bg-rev hover:text-white text-lg p-6 bg-primary-900 rounded-panel border shadow-2xl hover:bg-primary-800 hover:-translate-y-2 border-none transition-all duration-trans text-center"
         >
           {/* <a
           // ref={ref}
