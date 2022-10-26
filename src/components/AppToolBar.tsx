@@ -1,11 +1,17 @@
 import { Avatar, Group, Indicator } from "@mantine/core";
 import { useHotkeys, useToggle } from "@mantine/hooks";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineSetting } from "react-icons/ai";
-import { IoAddSharp } from "react-icons/io5";
+import {
+  IoAddSharp,
+  IoVolumeHighOutline,
+  IoVolumeMuteOutline,
+} from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import Yousra from "../assets/2.jpg";
 import {
+  MdLightMode,
+  MdOutlineLightMode,
   MdOutlineNotificationsActive,
   MdOutlineNotificationsNone,
   MdOutlineNotificationsOff,
@@ -17,6 +23,7 @@ import { openSpotlight } from "@mantine/spotlight";
 // const summonSpotLight = useHotkeys()
 
 const AppToolBar = () => {
+  const [soundMode, setSoundMode] = useState(false);
   let Notification = true;
   const [isSynced, setSynced] = useToggle([VscSync, VscSyncIgnored]);
   return (
@@ -49,6 +56,17 @@ const AppToolBar = () => {
           <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
         )}
         {/* <StatusBarComp Icon={isSynced} size="" text="" /> */}
+        {soundMode ? (
+          <StatusBarComp Icon={IoVolumeHighOutline} text="" />
+        ) : (
+          <StatusBarComp Icon={IoVolumeMuteOutline} text="" />
+        )}
+        {soundMode ? (
+          <StatusBarComp Icon={MdOutlineLightMode} text="" />
+        ) : (
+          <StatusBarComp Icon={MdLightMode} text="" />
+        )}
+
         <StatusBarComp Icon={VscSyncIgnored} text="" />
         <StatusBarComp Icon={AiOutlineSetting} text="" />
       </div>

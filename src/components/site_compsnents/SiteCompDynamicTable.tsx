@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@mantine/core";
+import { Drawer, SimpleGrid, useMantineTheme } from "@mantine/core";
 import { Button, Dropdown, Popconfirm, Menu } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
@@ -12,6 +12,7 @@ import { ImBin } from "react-icons/im";
 import { BiDownArrow } from "react-icons/bi";
 import { MenuProps } from "rc-menu";
 import { AiOutlineSetting } from "react-icons/ai";
+import TableSettings from "../TableSettings";
 
 const actionItemList: MenuProps["items"] = [
   {
@@ -48,9 +49,18 @@ interface DataType {
   name: string;
   age: number;
   address: string;
+  serial: number;
 }
 
 const columns: ColumnsType<DataType> = [
+  {
+    title: "No.",
+    dataIndex: "serial",
+    align: "center",
+    width: 40,
+
+    // onFilter: (value, record) => record.name.includes(value),
+  },
   {
     title: "Name",
     dataIndex: "name",
@@ -61,7 +71,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: "Age",
     dataIndex: "age",
-    width: 100,
+    // width: 100,
     align: "center",
     // filteredValue: filteredInfo.name || null,
     sorter: (a, b) => a.name.length - b.name.length,
@@ -114,6 +124,7 @@ const data: DataType[] = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
+    serial: i + 1,
     name: `Edward King ${i}`,
     age: 22,
     address: `London, Park Lane no. ${i}`,
@@ -180,6 +191,8 @@ const SiteCompDynamicTable = ({
   const hasSelected = selectedRowKeys.length > 0;
 
   //Actions Btn onSelect()
+  const [opened, setOpened] = useState(false);
+
   const [current, setCurrent] = useState("mail");
 
   const menu = (
@@ -193,6 +206,7 @@ const SiteCompDynamicTable = ({
     console.log("click ", e);
     setCurrent(e.key);
   };
+  const theme = useMantineTheme();
 
   return (
     <div className="w-5/6 m-auto text-xl">
@@ -205,13 +219,12 @@ const SiteCompDynamicTable = ({
         >
           Reload
         </Button> */}
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-2 w-full">
           <Dropdown
             className="flex items-center justify-center gap-2 "
             overlay={menu}
             trigger={["click"]}
             placement="topLeft"
-            transitionName="slide"
             disabled={!hasSelected}
           >
             <Button
@@ -241,12 +254,30 @@ const SiteCompDynamicTable = ({
           <Button
             className="bg-primary-600 border-none hover:bg-primary-500 focus:bg-primary-500 "
             type="primary"
-            onClick={start}
+            onClick={() => setOpened(!opened)}
             size="small"
-            loading={loadingg}
           >
             <AiOutlineSetting />
           </Button>
+          <Drawer
+            className="flex flex-col items-start justify-center"
+            position="bottom"
+            size="ms"
+            opened={opened}
+            padding="xl"
+            withCloseButton={false}
+            onClose={() => setOpened(false)}
+            // overlayColor={
+            //   "black"
+            // theme.colorScheme === "dark"
+            //   ? theme.colors.dark[9]
+            //   : theme.colors.gray[2]
+            // }
+            overlayOpacity={0.1}
+            // overlayBlur={0.7}
+          >
+            <TableSettings />
+          </Drawer>
         </div>
       </div>
       <Table

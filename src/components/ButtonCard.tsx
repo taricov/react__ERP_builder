@@ -2,17 +2,18 @@ import React, { SVGProps, forwardRef } from "react";
 
 interface Props {
   title: string;
+  href: string;
   desc: string;
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
 const ButtonCard = forwardRef<HTMLDivElement, Props>(
-  ({ title, desc, Icon }, ref) => {
+  ({ title, desc, Icon, href }, ref) => {
     return (
       <>
         <a
           // ref={ref}
-          href="."
+          href={href}
           className="block text-white h-fit w-1/3 text-bg-rev hover:text-white text-lg p-6 bg-primary-900 rounded-panel border shadow-2xl hover:bg-primary-800 hover:-translate-y-2 border-none transition-all duration-trans text-center"
         >
           {/* <a

@@ -20,6 +20,7 @@ const HomePage = () => {
           {/* <SiteCompTooltip label="anything"> */}
           <Tooltip label="anything">
             <ButtonCard
+              href="/module_name"
               title="Modules"
               desc="Your apps that you built"
               Icon={VscFileSubmodule}
@@ -27,11 +28,13 @@ const HomePage = () => {
           </Tooltip>
           {/* </SiteCompTooltip> */}
           <ButtonCard
+            href="/module_name/builder"
             title="Builder"
             desc="Where You Can Build Your Module"
             Icon={IoConstructOutline}
           />
           <ButtonCard
+            href="/settings"
             title="Settings"
             desc="System Configurations"
             Icon={AiOutlineSetting}
