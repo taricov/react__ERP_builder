@@ -6,14 +6,55 @@ const TableSettings = () => {
     <div>
       <Switch.Group
         defaultValue={["react"]}
-        label="Select your favorite framework/library"
-        description="This is anonymous"
+        label="Table Settings"
+        description="Add superpowers to your table"
         spacing="xs"
       >
-        <Switch value="react" label="React" />
-        <Switch value="svelte" label="Svelte" />
-        <Switch value="ng" label="Angular" />
-        <Switch value="vue" label="Vue" />
+        <Switch
+          color={"rgb(125 112 143)"}
+          labelPosition="left"
+          className="flex"
+          value="borders"
+          label="Borders"
+          onLabel="On"
+          offLabel="Off"
+        />
+        <Switch
+          color={"rgb(125 112 143)"}
+          labelPosition="left"
+          className="flex"
+          value="scroll"
+          label="Scroll"
+          onLabel="On"
+          offLabel="Off"
+        />
+        <Switch
+          color={"rgb(125 112 143)"}
+          labelPosition="left"
+          className="flex"
+          value="size"
+          label="Size"
+          onLabel="On"
+          offLabel="Off"
+        />
+        <Switch
+          color={"rgb(125 112 143)"}
+          labelPosition="left"
+          className="flex"
+          value="pagy"
+          label="Simple Pagination"
+          onLabel="On"
+          offLabel="Off"
+        />
+        <Switch
+          color={"rgb(125 112 143)"}
+          labelPosition="left"
+          className="flex"
+          value="header"
+          label="Header"
+          onLabel="On"
+          offLabel="Off"
+        />
       </Switch.Group>
     </div>
   );

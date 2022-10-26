@@ -10,6 +10,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { ImBin } from "react-icons/im";
 import { BiDownArrow } from "react-icons/bi";
+import { HiOutlineDuplicate } from "react-icons/hi";
 import { MenuProps } from "rc-menu";
 import { AiOutlineSetting } from "react-icons/ai";
 import TableSettings from "../TableSettings";
@@ -103,6 +104,9 @@ const columns: ColumnsType<DataType> = [
         <a href="#">
           <FiEdit />
         </a>
+        <a href="#">
+          <HiOutlineDuplicate />
+        </a>
 
         {/* render: (_, record: { key: React.Key }) =>
         dataSource.length >= 1 ? (
@@ -151,7 +155,7 @@ const SiteCompDynamicTable = ({
         scrollToFirstRowOnChange?: boolean | undefined;
       })
     | undefined
-  >({ y: 250 });
+  >({ y: 200 });
   const [rowSelection, setRowSelection] = useState<
     TableRowSelection<DataType> | undefined
   >();
@@ -260,11 +264,14 @@ const SiteCompDynamicTable = ({
             <AiOutlineSetting />
           </Button>
           <Drawer
-            className="flex flex-col items-start justify-center"
+            classNames={{
+              drawer:
+                "bg-gradient-to-r from-skin-hue2 to-skin-hue0bg-primary-200",
+            }}
             position="bottom"
             size="ms"
             opened={opened}
-            padding="xl"
+            padding="lg"
             withCloseButton={false}
             onClose={() => setOpened(false)}
             // overlayColor={

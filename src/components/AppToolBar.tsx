@@ -7,6 +7,7 @@ import {
   IoVolumeHighOutline,
   IoVolumeMuteOutline,
 } from "react-icons/io5";
+import { useGoBack } from "../custom_hooks/useBackUrl";
 import { FiSearch } from "react-icons/fi";
 import Yousra from "../assets/2.jpg";
 import {
@@ -28,7 +29,10 @@ const AppToolBar = () => {
   const [isSynced, setSynced] = useToggle([VscSync, VscSyncIgnored]);
   return (
     <div className="h-8 flex bg-primary-700 items-center ">
-      <div className="flex items-center justify-start w-1/2 h-full">
+      <div
+        className="flex items-center justify-start w-1/2 h-full"
+        onClick={useGoBack}
+      >
         <StatusBarComp Icon={AiOutlineArrowLeft} text="" />
       </div>
       <div className="flex items-center justify-end w-1/2 h-full">

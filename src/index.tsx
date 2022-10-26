@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 // import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, useLocation } from "react-router-dom";
+import { BrowserRouter, useLocation, useNavigate } from "react-router-dom";
 import { SpotlightAction, SpotlightProvider } from "@mantine/spotlight";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
@@ -20,14 +20,14 @@ const defaultSpotlightActions: SpotlightAction[] = [
     title: "Home",
     // group: "main",
     description: "Get to home page",
-    onTrigger: () => console.log("Home"),
+    onTrigger: () => (window.location.href = "/"),
     icon: <AiOutlineHome />,
   },
   {
     title: "Settings",
     // group: "main",
     description: "Configure your app as you wish",
-    onTrigger: () => console.log("settinga"),
+    onTrigger: () => (window.location.href = "/settings"),
     icon: <AiOutlineSetting />,
   },
   {
@@ -35,7 +35,7 @@ const defaultSpotlightActions: SpotlightAction[] = [
     // group: "main",
     description:
       "Visit the documentation to get more information about how it works",
-    onTrigger: () => console.log("Home"),
+    onTrigger: () => (window.location.href = "/Docs"),
     icon: <SlDocs />,
   },
 ];
