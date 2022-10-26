@@ -10,6 +10,7 @@ import ModulePage from "./pages/ModulePage";
 import LoginPage from "./pages/LoginPage";
 import Error404Page from "./pages/Error404Page";
 import NavBar from "./components/NavBar";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/add_app" element={<AddNewModulePage />} />
         <Route path="/module_name" element={<ModulePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="*" element={<Error404Page />} />
       </Routes>
       {/* <NavBar /> */}
