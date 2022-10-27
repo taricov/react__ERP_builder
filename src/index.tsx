@@ -53,6 +53,12 @@ const Wrapper = ({ children }: Props): any => {
 root.render(
   <>
     <SpotlightProvider
+      classNames={{
+        searchInput: "bg-primary-100",
+        actions: "p-0",
+        action: "rounded-none border-b-4",
+        actionHovered: "bg-primary-200",
+      }}
       actions={defaultSpotlightActions}
       searchIcon={<FiSearch />}
       searchPlaceholder="Search..."
