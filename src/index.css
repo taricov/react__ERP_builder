@@ -160,8 +160,4 @@ transition: all .4s;
 
 .disabled{
   pointer-events: none !important;
-  /* user-select: none; */
-  cursor: default !important;
-
-  color: rgb(126, 129, 129);
 }

@@ -55,90 +55,6 @@ interface DataType {
   serial: number;
 }
 
-const columns: ColumnsType<DataType> = [
-  {
-    title: "No.",
-    dataIndex: "serial",
-    align: "center",
-    width: 40,
-
-    onFilter: (value: any, record) => record.name.includes(value),
-  },
-  {
-    title: "Name",
-    dataIndex: "name",
-    align: "center",
-
-    // onFilter: (value, record) => record.name.includes(value),
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    // width: 100,
-    align: "center",
-    // filteredValue: filteredInfo.name || null,
-    sorter: (a, b) => a.name.length - b.name.length,
-
-    // sortOrder: sortedInfo.columnKey === "name" && sortedInfo.order,
-    //   }
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    align: "center",
-    filters: [
-      {
-        text: "Joe",
-        value: "Joe",
-      },
-      {
-        text: "Category 1",
-        value: "Category 1",
-      },
-    ],
-    onFilter: (value: any, record) => record.address.indexOf(value) === 0,
-    sorter: (a, b) => a.address.length - b.address.length,
-
-    // render: (text, _, index) => (
-    //   <input value={text} onChange={(v) => onChange(v, index)} />
-    // ),
-
-    // shouldCellUpdate: (record, prevRecord) => {
-    //   console.log(record.name, prevRecord.name);
-    //   return record.name !== prevRecord.name;
-    // },
-  },
-  {
-    title: "Actions",
-    key: "operation",
-    align: "center",
-    fixed: false,
-    width: 100,
-    render: () => (
-      <div className="flex justify-center items-center gap-2">
-        <a href="#">
-          <FiEdit />
-        </a>
-        <a href="#">
-          <HiOutlineDuplicate />
-        </a>
-
-        {/* render: (_, record: { key: React.Key }) =>
-        dataSource.length >= 1 ? (
-          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-            <a>Delete</a>
-          </Popconfirm>
-        ) : null, */}
-        <Popconfirm title="Sure to delete?">
-          <a>
-            <FaRegTrashAlt className="text-sm" />
-          </a>
-        </Popconfirm>
-      </div>
-    ),
-  },
-];
-
 const data: DataType[] = [];
 for (let i = 0; i < 100; i++) {
   data.push({
@@ -191,10 +107,15 @@ const SiteCompDynamicTable = ({
 
   const start = () => {
     setLoading(true);
-    // $(
-    //   ".ant-table-body table tr td:last-child > div >a> svg > path"
-    // ).toggleClass("disabled");
-    $("table tr td:first-child input").attr("disabled", "disabled");
+    setTableInputStatus((tableInputStatus) => !tableInputStatus);
+
+    // !tableInputStatus
+    //   ? $("table tr td:first-child input").attr("disabled", "disabled")
+    //   : $("table tr td:first-child input").removeAttr("disabled");
+    // $(".ant-checkbox-wrapper").css({ PointerEvent: "none" });
+    // !tableInputStatus
+    //   ? $("table tr td:first-child label").addClass("pointer-events-none")
+    //   : $("table tr td:first-child label").removeClass("pointer-events-none");
 
     // ajax request after empty completing
     setTimeout(() => {
@@ -231,6 +152,91 @@ const SiteCompDynamicTable = ({
     setCurrent(e.key);
   };
   const theme = useMantineTheme();
+  const [tableInputStatus, setTableInputStatus] = useState(false);
+
+  const columns: ColumnsType<DataType> = [
+    {
+      title: "No.",
+      dataIndex: "serial",
+      align: "center",
+      width: 40,
+
+      onFilter: (value: any, record) => record.name.includes(value),
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      align: "center",
+
+      // onFilter: (value, record) => record.name.includes(value),
+    },
+    {
+      title: "Age",
+      dataIndex: "age",
+      // width: 100,
+      align: "center",
+      // filteredValue: filteredInfo.name || null,
+      sorter: (a, b) => a.name.length - b.name.length,
+
+      // sortOrder: sortedInfo.columnKey === "name" && sortedInfo.order,
+      //   }
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+      align: "center",
+      filters: [
+        {
+          text: "Joe",
+          value: "Joe",
+        },
+        {
+          text: "Category 1",
+          value: "Category 1",
+        },
+      ],
+      onFilter: (value: any, record) => record.address.indexOf(value) === 0,
+      sorter: (a, b) => a.address.length - b.address.length,
+
+      // render: (text, _, index) => (
+      //   <input value={text} onChange={(v) => onChange(v, index)} />
+      // ),
+
+      // shouldCellUpdate: (record, prevRecord) => {
+      //   console.log(record.name, prevRecord.name);
+      //   return record.name !== prevRecord.name;
+      // },
+    },
+    {
+      title: "Actions",
+      key: "operation",
+      align: "center",
+      fixed: false,
+      width: 100,
+      render: () => (
+        <div className="flex justify-center items-center gap-2">
+          <a href="#" className={tableInputStatus ? "disabled" : ""}>
+            <FiEdit />
+          </a>
+          <a href="#" className={tableInputStatus ? "disabled" : ""}>
+            <HiOutlineDuplicate />
+          </a>
+
+          {/* render: (_, record: { key: React.Key }) =>
+        dataSource.length >= 1 ? (
+          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            <a>Delete</a>
+          </Popconfirm>
+        ) : null, */}
+          <Popconfirm title="Sure to delete?">
+            <a href="#" className={tableInputStatus ? "disabled" : ""}>
+              <FaRegTrashAlt className="text-sm" />
+            </a>
+          </Popconfirm>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div className="w-5/6 m-auto my-0 text-xl">
@@ -346,7 +352,7 @@ const SiteCompDynamicTable = ({
         }}
         scroll={ScrollBar}
         showHeader={showHeader}
-        rowSelection={rowSelectionn}
+        rowSelection={!tableInputStatus ? rowSelectionn : undefined}
         bordered={bordered}
         expandable={expandedRowRender}
         size={assignedSize}
