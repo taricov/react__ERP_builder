@@ -50,6 +50,7 @@ const Wrapper = ({ children }: Props): any => {
   }, [location.pathname]);
   return children;
 };
+//TODO: Add Shortcuts section
 root.render(
   <>
     <SpotlightProvider

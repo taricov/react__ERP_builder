@@ -96,9 +96,7 @@ td{
   height: 0; 
 }
 
-/* .ant-table-container{
 
-} */
 /* 
 .ant-pagination.ant-table-pagination>li:hover{
 opacity: .6;
@@ -151,4 +149,19 @@ td.ant-table-column-sort{
 }
 .ant-table-cell{
 border-color: rgba(170, 170, 170, 0.168) !important;
+}
+
+.ant-table-container table{
+}
+table tr .ant-table-cell:first-child,
+table tr .ant-table-cell:last-child{
+transition: all .4s;
+}
+
+.disabled{
+  pointer-events: none !important;
+  /* user-select: none; */
+  cursor: default !important;
+
+  color: rgb(126, 129, 129);
 }

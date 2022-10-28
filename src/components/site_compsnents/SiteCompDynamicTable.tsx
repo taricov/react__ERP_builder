@@ -1,4 +1,4 @@
-import { Drawer, SimpleGrid, useMantineTheme } from "@mantine/core";
+import { Drawer, SimpleGrid, TextInput, useMantineTheme } from "@mantine/core";
 import { Button, Dropdown, Popconfirm, Menu } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
@@ -7,13 +7,15 @@ import { PanelRender } from "rc-table/lib/interface";
 import React, { MouseEventHandler, useState } from "react";
 import { BsArrowRightSquareFill, BsTrash } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiSearch } from "react-icons/fi";
 import { ImBin } from "react-icons/im";
 import { BiDownArrow } from "react-icons/bi";
 import { HiOutlineDuplicate } from "react-icons/hi";
 import { MenuProps } from "rc-menu";
 import { AiOutlineSetting } from "react-icons/ai";
 import TableSettings from "../TableSettings";
+import $ from "jquery";
+import SiteCompSearchBar from "./SiteCompSearchBar";
 
 const actionItemList: MenuProps["items"] = [
   {
@@ -60,7 +62,7 @@ const columns: ColumnsType<DataType> = [
     align: "center",
     width: 40,
 
-    // onFilter: (value, record) => record.name.includes(value),
+    onFilter: (value: any, record) => record.name.includes(value),
   },
   {
     title: "Name",
@@ -84,6 +86,19 @@ const columns: ColumnsType<DataType> = [
     title: "Address",
     dataIndex: "address",
     align: "center",
+    filters: [
+      {
+        text: "Joe",
+        value: "Joe",
+      },
+      {
+        text: "Category 1",
+        value: "Category 1",
+      },
+    ],
+    onFilter: (value: any, record) => record.address.indexOf(value) === 0,
+    sorter: (a, b) => a.address.length - b.address.length,
+
     // render: (text, _, index) => (
     //   <input value={text} onChange={(v) => onChange(v, index)} />
     // ),
@@ -155,7 +170,7 @@ const SiteCompDynamicTable = ({
         scrollToFirstRowOnChange?: boolean | undefined;
       })
     | undefined
-  >({ y: 200 });
+  >({ y: 240 });
   const [rowSelection, setRowSelection] = useState<
     TableRowSelection<DataType> | undefined
   >();
@@ -176,6 +191,11 @@ const SiteCompDynamicTable = ({
 
   const start = () => {
     setLoading(true);
+    // $(
+    //   ".ant-table-body table tr td:last-child > div >a> svg > path"
+    // ).toggleClass("disabled");
+    $("table tr td:first-child input").attr("disabled", "disabled");
+
     // ajax request after empty completing
     setTimeout(() => {
       setSelectedRowKeys([]);
@@ -213,7 +233,7 @@ const SiteCompDynamicTable = ({
   const theme = useMantineTheme();
 
   return (
-    <div className="w-5/6 m-auto text-xl">
+    <div className="w-5/6 m-auto my-0 text-xl">
       <div className="flex items-center justify-between w-full">
         {/* <Button
           type="primary"
@@ -223,9 +243,9 @@ const SiteCompDynamicTable = ({
         >
           Reload
         </Button> */}
-        <div className="flex items-center justify-between mb-2 w-full">
+        <div className="flex items-center justify-start mb-2 flex-1">
           <Dropdown
-            className="flex items-center justify-center gap-2 "
+            className="flex items-center justify-center gap-2"
             overlay={menu}
             trigger={["click"]}
             placement="topLeft"
@@ -246,6 +266,19 @@ const SiteCompDynamicTable = ({
           </span>
         </div>
         <div className="flex items-center justify-center gap-1">
+          {/* <SiteCompSearchBar
+            label=""
+            placeholder="Search..."
+            TheIcon={FiSearch}
+          /> */}
+          <TextInput
+            label={""}
+            placeholder="Search..."
+            icon={<FiSearch />}
+            // rightSection={<TheIcon />}
+            size="xs"
+          />
+
           <Button
             className="bg-primary-600 border-none hover:bg-primary-500 focus:bg-primary-500 "
             type="primary"
@@ -288,6 +321,7 @@ const SiteCompDynamicTable = ({
         </div>
       </div>
       <Table
+        className=""
         rowClassName={(record, index) =>
           index % 2 === 0
             ? "cursor-pointer bg-primary-300"
@@ -295,7 +329,9 @@ const SiteCompDynamicTable = ({
         }
         columns={columns}
         dataSource={data}
+        tableLayout="auto"
         pagination={{
+          hideOnSinglePage: true,
           pageSize: pageSize,
           simple: simplePagy,
           defaultCurrent: 1,
