@@ -2,6 +2,7 @@ import React from "react";
 import SettingsRow from "../components/SettingsRow";
 import SettingsSection from "../components/SettingsSection";
 import SiteCompSlider from "../components/site_compsnents/SiteCompSlider";
+import SiteCompTextEditor from "../components/site_compsnents/SiteCompTextEditor";
 
 const SettingsPage = () => {
   return (
@@ -22,6 +23,7 @@ const SettingsPage = () => {
           <SettingsRow label="Module something" comp={<SiteCompSlider />} />
         </SettingsSection>
       </div>
+      <SiteCompTextEditor />
     </div>
   );
 };
