@@ -30,11 +30,36 @@ const addBtnItems = [
   { title: "New Expense", href: "#" },
   { title: "New Rent", href: "#" },
 ];
+const settingsBtnItems = [
+  { title: "Setting 1", href: "#" },
+  { title: "Predefined settings", href: "#" },
+  { title: "Setting 2", href: "#" },
+  { title: "Setting 3", href: "#" },
+];
 
 const AppToolBar = () => {
-  const [soundMode, setSoundMode] = useState(false);
-  let Notification = true;
-  const [isSynced, setSynced] = useToggle([VscSync, VscSyncIgnored]);
+  const [soundMode, setSoundMode] = useState(
+    localStorage?.getItem("soundMode") ?? true
+  );
+  const [darkMode, setDarkMode] = useState(
+    localStorage?.getItem("darkMode") ?? true
+  );
+  const [seenNotification, setSeenNotification] = useState<boolean>(false);
+  const [syncMode, setSyncMode] = useState(
+    localStorage?.getItem("syncMode") ?? true
+  );
+  const soundModeFn = () => {
+    setSoundMode(!soundMode);
+    localStorage.setItem("soundMode", JSON.stringify(!soundMode));
+  };
+  const darkModeFn = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem("darkMode", JSON.stringify(!darkMode));
+  };
+  const syncModeFn = () => {
+    setSyncMode(!syncMode);
+    localStorage.setItem("syncMode", JSON.stringify(!syncMode));
+  };
   return (
     <div className="h-8 flex bg-primary-700 items-center ">
       <div
@@ -55,12 +80,10 @@ const AppToolBar = () => {
             menuItems={addBtnItems}
           />
         </div>
-        <StatusBarComp
-          Icon={FiSearch}
-          text=""
-          onClick={() => openSpotlight()}
-        />
-        {Notification ? (
+        <div className="h-full" onClick={() => openSpotlight()}>
+          <StatusBarComp Icon={FiSearch} text="" />
+        </div>
+        {seenNotification ? (
           <Indicator
             showZero={false}
             offset={8}
@@ -75,20 +98,45 @@ const AppToolBar = () => {
         ) : (
           <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
         )}
-        {/* <StatusBarComp Icon={isSynced} size="" text="" /> */}
-        {soundMode ? (
-          <StatusBarComp Icon={IoVolumeHighOutline} text="" />
-        ) : (
-          <StatusBarComp Icon={IoVolumeMuteOutline} text="" />
-        )}
-        {soundMode ? (
-          <StatusBarComp Icon={MdOutlineLightMode} text="" />
-        ) : (
-          <StatusBarComp Icon={MdLightMode} text="" />
-        )}
+        <div
+          className="h-full flex items-center justify-center"
+          onClick={soundModeFn}
+        >
+          {soundMode ? (
+            <StatusBarComp Icon={IoVolumeHighOutline} text="" />
+          ) : (
+            <StatusBarComp Icon={IoVolumeMuteOutline} text="" />
+          )}
+        </div>
+        <div
+          className="h-full flex items-center justify-center"
+          onClick={darkModeFn}
+        >
+          {darkMode ? (
+            <StatusBarComp Icon={MdOutlineLightMode} text="" />
+          ) : (
+            <StatusBarComp Icon={MdLightMode} text="" />
+          )}
+        </div>
+        <div
+          className="h-full flex items-center justify-center"
+          onClick={syncModeFn}
+        >
+          {syncMode ? (
+            <StatusBarComp Icon={VscSync} text="" />
+          ) : (
+            <StatusBarComp Icon={VscSyncIgnored} text="" />
+          )}
+        </div>
 
-        <StatusBarComp Icon={VscSyncIgnored} text="" />
-        <StatusBarComp Icon={AiOutlineSetting} text="" />
+        <div className="h-full flex items-center justify-center">
+          <SiteCompIconDropDown
+            buttonTitle=""
+            menuIcon={<StatusBarComp Icon={AiOutlineSetting} text="" />}
+            w={100}
+            menuItems={settingsBtnItems}
+          />
+        </div>
       </div>
       {/*<Group position="center" spacing={40}>
         <Indicator color="green" size={8} withBorder processing offset={1}>
