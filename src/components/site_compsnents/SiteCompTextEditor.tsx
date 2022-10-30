@@ -9,7 +9,7 @@ const SiteCompTextEditor = () => {
 
   return (
     <div>
-      <RichTextEditor value={value} onChange={onChange} id="rte" />;
+      <RichTextEditor value={value} onChange={onChange} id="rte" />
     </div>
   );
 };

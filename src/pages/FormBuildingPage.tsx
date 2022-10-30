@@ -8,8 +8,8 @@ import ToolBar from "../components/FunctionsBar";
 
 const FormBuildingPage = () => {
   return (
-    <div className="bg-gradient-to-r from-skin-hue2 to-skin-hue0 h-screen max-h-screen relative pt-10">
-      <ToolBar />
+    <div className="bg-gradient-to-r from-skin-hue2 to-skin-hue0 h-screen max-h-screen relative pt-20">
+      {/* <ToolBar /> */}
       <DndProvider backend={HTML5Backend}>
         <div className="flex flex-col">
           <div className="flex flex-1 item-start gap-2 h-screen">

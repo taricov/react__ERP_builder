@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Calendar, View, DateLocalizer } from "react-big-calendar";
-import moment from "moment";
 
-import { momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { momentLocalizer } from "react-big-calendar";
+import moment from "moment";
 
 const localizer = momentLocalizer(moment);
 
@@ -42,9 +42,9 @@ class CalendarEvent {
 function SelectableCalendar({ localizer }: Props) {
   const [events, setEvents] = useState([
     { start: moment(), end: moment().add(1, "hours"), title: "test" },
-  ] as CalendarEvent[]);
+  ] as any);
 
-  const handleSelect = ({ start, end }) => {
+  const handleSelect = ({ start, end }: any) => {
     const title = window.prompt("New Event name");
 
     if (title) {
@@ -75,7 +75,7 @@ function SelectableCalendar({ localizer }: Props) {
         defaultView="month"
         views={allViews}
         defaultDate={new Date(2020, 4, 21)}
-        onSelectEvent={(event) => alert(event.title)}
+        onSelectEvent={(event: any) => alert(event.title)}
         onSelectSlot={handleSelect}
         startAccessor="start"
         endAccessor="end"
@@ -85,7 +85,7 @@ function SelectableCalendar({ localizer }: Props) {
   );
 }
 
-function SiteCalendarComp() {
+function SiteCompCalendar() {
   return (
     <div style={{ height: "100vh" }}>
       <SelectableCalendar localizer={localizer} />
@@ -93,4 +93,4 @@ function SiteCalendarComp() {
   );
 }
 
-export default SiteCalendarComp;
+export default SiteCompCalendar;

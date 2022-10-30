@@ -1,8 +1,9 @@
 import React from "react";
 import SettingsRow from "../components/SettingsRow";
 import SettingsSection from "../components/SettingsSection";
+import SiteCompSearchBar from "../components/site_compsnents/SiteCompSearchBar";
 import SiteCompSlider from "../components/site_compsnents/SiteCompSlider";
-import SiteCompTextEditor from "../components/site_compsnents/SiteCompTextEditor";
+import SiteCompCalendar from "../components/site_compsnents/SiteCompCalendar";
 
 const SettingsPage = () => {
   return (
@@ -23,7 +24,7 @@ const SettingsPage = () => {
           <SettingsRow label="Module something" comp={<SiteCompSlider />} />
         </SettingsSection>
       </div>
-      <SiteCompTextEditor />
+      {/* <SiteCompCalendar /> */}
     </div>
   );
 };

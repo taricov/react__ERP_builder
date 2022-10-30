@@ -20,6 +20,7 @@ import {
 import StatusBarComp from "./StatusBarComp";
 import { VscSync, VscSyncIgnored } from "react-icons/vsc";
 import { openSpotlight } from "@mantine/spotlight";
+import SiteCompMenu from "./site_compsnents/SiteCompMenu";
 
 // const summonSpotLight = useHotkeys()
 
@@ -38,6 +39,11 @@ const AppToolBar = () => {
       <div className="flex items-center justify-end w-1/2 h-full">
         <div className="h-full bg-primary-500">
           <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
+          <SiteCompMenu
+            buttonTitle=""
+            w={100}
+            menuItems={[{ title: "SFsdf", href: "adfzds" }]}
+          />
         </div>
         <StatusBarComp
           Icon={FiSearch}

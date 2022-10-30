@@ -32,10 +32,14 @@ const SiteCompMenu = ({
           </Text>
         </Menu.Target>
 
-        <Menu.Dropdown className="rounded-t-none rounded-b-md">
+        <Menu.Dropdown className="rounded-t-none rounded-b-md bg-primary-800 shadow-md border-none">
           {menuItems.map((val) => {
             return (
-              <Menu.Item component="a" href={val.href} className="text-xs p-1">
+              <Menu.Item
+                component="a"
+                href={val.href}
+                className="text-xs p-1 text-white hover:text-slate-700"
+              >
                 {val.title}
               </Menu.Item>
             );
