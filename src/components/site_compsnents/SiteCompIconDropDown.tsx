@@ -1,6 +1,7 @@
 import { Button, Menu, Text } from "@mantine/core";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
-import React from "react";
+import React, { SVGProps } from "react";
+import { MdOutlineStackedLineChart } from "react-icons/md";
 
 interface Props {
   buttonTitle: string;
@@ -8,14 +9,15 @@ interface Props {
   offset?: number;
   pos?: FloatingPosition | undefined;
   menuItems: Array<{ title: string; href: string }>;
+  menuIcon?: React.ReactNode | undefined;
 }
-
-const SiteCompMenu = ({
+const SiteCompIconDropDown = ({
   buttonTitle,
   pos = "bottom-start",
   offset = 1,
   w,
   menuItems,
+  menuIcon = undefined,
 }: Props) => {
   return (
     <>
@@ -28,7 +30,8 @@ const SiteCompMenu = ({
         offset={offset}
       >
         <Menu.Target>
-          <Text className="font-light px-2 py-0 rounded-none text-sm transition-colors duration-trans cursor-pointer hover:bg-slate-500">
+          <Text className="font-light h-full rounded-none text-sm transition-colors duration-trans cursor-pointer hover:bg-slate-500">
+            {menuIcon}
             {buttonTitle}
           </Text>
         </Menu.Target>
@@ -51,4 +54,4 @@ const SiteCompMenu = ({
   );
 };
 
-export default SiteCompMenu;
+export default SiteCompIconDropDown;

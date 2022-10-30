@@ -20,9 +20,16 @@ import {
 import StatusBarComp from "./StatusBarComp";
 import { VscSync, VscSyncIgnored } from "react-icons/vsc";
 import { openSpotlight } from "@mantine/spotlight";
-import SiteCompMenu from "./site_compsnents/SiteCompMenu";
+import SiteCompIconDropDown from "./site_compsnents/SiteCompIconDropDown";
 
 // const summonSpotLight = useHotkeys()
+
+const addBtnItems = [
+  { title: "New Module", href: "#" },
+  { title: "New Invoice", href: "#" },
+  { title: "New Expense", href: "#" },
+  { title: "New Rent", href: "#" },
+];
 
 const AppToolBar = () => {
   const [soundMode, setSoundMode] = useState(false);
@@ -37,12 +44,15 @@ const AppToolBar = () => {
         <StatusBarComp Icon={AiOutlineArrowLeft} text="" />
       </div>
       <div className="flex items-center justify-end w-1/2 h-full">
-        <div className="h-full bg-primary-500">
+        {/* <div className="h-full bg-primary-500">
           <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
-          <SiteCompMenu
+        </div> */}
+        <div className="h-full bg-primary-500 flex items-center justify-center">
+          <SiteCompIconDropDown
             buttonTitle=""
+            menuIcon={<StatusBarComp Icon={IoAddSharp} text="" size="2xl" />}
             w={100}
-            menuItems={[{ title: "SFsdf", href: "adfzds" }]}
+            menuItems={addBtnItems}
           />
         </div>
         <StatusBarComp
