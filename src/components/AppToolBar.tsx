@@ -21,6 +21,7 @@ import StatusBarComp from "./StatusBarComp";
 import { VscSync, VscSyncIgnored } from "react-icons/vsc";
 import { openSpotlight } from "@mantine/spotlight";
 import SiteCompIconDropDown from "./site_compsnents/SiteCompIconDropDown";
+import { notification } from "antd";
 
 // const summonSpotLight = useHotkeys()
 
@@ -37,6 +38,10 @@ const settingsBtnItems = [
   { title: "Setting 3", href: "#" },
 ];
 
+const notificationQueue = [
+  { notificationBody: "Text body goes here!!", notificationStatus: "Unseen" },
+];
+
 const AppToolBar = () => {
   const [soundMode, setSoundMode] = useState(
     localStorage?.getItem("soundMode") ?? true
@@ -44,7 +49,8 @@ const AppToolBar = () => {
   const [darkMode, setDarkMode] = useState(
     localStorage?.getItem("darkMode") ?? true
   );
-  const [seenNotification, setSeenNotification] = useState<boolean>(false);
+  const [seenNotification, setSeenNotification] =
+    useState<object[]>(notificationQueue);
   const [syncMode, setSyncMode] = useState(
     localStorage?.getItem("syncMode") ?? true
   );
@@ -83,29 +89,47 @@ const AppToolBar = () => {
         <div className="h-full" onClick={() => openSpotlight()}>
           <StatusBarComp Icon={FiSearch} text="" />
         </div>
-        {seenNotification ? (
-          <Indicator
-            showZero={false}
-            offset={8}
-            size={6}
-            color="yellow"
-            processing
-            position="top-end"
-            className=" h-full"
-          >
-            <StatusBarComp Icon={MdOutlineNotificationsActive} text="" />
-          </Indicator>
-        ) : (
-          <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
-        )}
+        <div className="h-full flex items-center justify-center">
+          {seenNotification ? (
+            <Indicator
+              showZero={false}
+              offset={8}
+              size={6}
+              color="yellow"
+              processing
+              position="top-end"
+              className=" h-full"
+            >
+              <SiteCompIconDropDown
+                buttonTitle=""
+                trigger="click"
+                menuIcon={
+                  <StatusBarComp Icon={MdOutlineNotificationsActive} text="" />
+                }
+                w={100}
+                menuItems={addBtnItems}
+              />
+            </Indicator>
+          ) : (
+            <SiteCompIconDropDown
+              buttonTitle=""
+              trigger="click"
+              menuIcon={
+                <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
+              }
+              w={100}
+              menuItems={addBtnItems}
+            />
+          )}
+        </div>
         <div
           className="h-full flex items-center justify-center"
           onClick={soundModeFn}
         >
           {soundMode ? (
-            <StatusBarComp Icon={IoVolumeHighOutline} text="" />
+            <StatusBarComp Icon={IoVolumeHighOutline} text="" size="xl" />
           ) : (
-            <StatusBarComp Icon={IoVolumeMuteOutline} text="" />
+            <StatusBarComp Icon={IoVolumeMuteOutline} text="" size="xl" />
           )}
         </div>
         <div

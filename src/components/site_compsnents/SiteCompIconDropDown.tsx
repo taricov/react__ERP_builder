@@ -1,5 +1,6 @@
 import { Button, Menu, Text } from "@mantine/core";
 import { FloatingPosition } from "@mantine/core/lib/Floating";
+import { MenuTriggerEvent } from "@mantine/core/lib/Menu/Menu.types";
 import React, { SVGProps } from "react";
 import { MdOutlineStackedLineChart } from "react-icons/md";
 
@@ -10,6 +11,7 @@ interface Props {
   pos?: FloatingPosition | undefined;
   menuItems: Array<{ title: string; href: string }>;
   menuIcon?: React.ReactNode | undefined;
+  trigger?: MenuTriggerEvent | undefined;
 }
 const SiteCompIconDropDown = ({
   buttonTitle,
@@ -18,11 +20,12 @@ const SiteCompIconDropDown = ({
   w,
   menuItems,
   menuIcon = undefined,
+  trigger = "hover",
 }: Props) => {
   return (
     <>
       <Menu
-        trigger="hover"
+        trigger={trigger}
         openDelay={0}
         closeDelay={0}
         position={pos}
