@@ -4,7 +4,7 @@ import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
 import { ExpandableConfig, TableRowSelection } from "antd/lib/table/interface";
 import { PanelRender } from "rc-table/lib/interface";
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler, useContext, useState } from "react";
 import { BsArrowRightSquareFill, BsTrash } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FiEdit, FiSearch } from "react-icons/fi";
@@ -16,6 +16,7 @@ import { AiOutlineSetting } from "react-icons/ai";
 import TableSettings from "../TableSettings";
 import $ from "jquery";
 import SiteCompSearchBar from "./SiteCompSearchBar";
+import { moduleMetaDataCtx } from "../ModuleMetaData";
 
 const actionItemList: MenuProps["items"] = [
   {
@@ -86,7 +87,7 @@ const SiteCompDynamicTable = ({
         scrollToFirstRowOnChange?: boolean | undefined;
       })
     | undefined
-  >({ y: 240 });
+  >({ y: 260 });
   const [rowSelection, setRowSelection] = useState<
     TableRowSelection<DataType> | undefined
   >();
@@ -107,13 +108,13 @@ const SiteCompDynamicTable = ({
 
   const start = () => {
     setLoading(true);
-    setTableInputStatus((tableInputStatus) => !tableInputStatus);
+    setEditMode((editMode) => !editMode);
 
-    // !tableInputStatus
+    // !editMode
     //   ? $("table tr td:first-child input").attr("disabled", "disabled")
     //   : $("table tr td:first-child input").removeAttr("disabled");
     // $(".ant-checkbox-wrapper").css({ PointerEvent: "none" });
-    // !tableInputStatus
+    // !editMode
     //   ? $("table tr td:first-child label").addClass("pointer-events-none")
     //   : $("table tr td:first-child label").removeClass("pointer-events-none");
 
@@ -121,7 +122,7 @@ const SiteCompDynamicTable = ({
     setTimeout(() => {
       setSelectedRowKeys([]);
       setLoading(false);
-    }, 1000);
+    }, 800);
   };
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
@@ -152,8 +153,9 @@ const SiteCompDynamicTable = ({
     setCurrent(e.key);
   };
   const theme = useMantineTheme();
-  const [tableInputStatus, setTableInputStatus] = useState(false);
-
+  const [editMode, setEditMode] = useState(false);
+  const moduleMetaDataContext = useContext(moduleMetaDataCtx);
+  console.log("This is coming from the Table comp", moduleMetaDataContext);
   const columns: ColumnsType<DataType> = [
     {
       title: "No.",
@@ -215,10 +217,10 @@ const SiteCompDynamicTable = ({
       width: 100,
       render: () => (
         <div className="flex justify-center items-center gap-2">
-          <a href="#" className={tableInputStatus ? "disabled" : ""}>
+          <a href="#" className={editMode ? "disabled" : ""}>
             <FiEdit />
           </a>
-          <a href="#" className={tableInputStatus ? "disabled" : ""}>
+          <a href="#" className={editMode ? "disabled" : ""}>
             <HiOutlineDuplicate />
           </a>
 
@@ -229,7 +231,7 @@ const SiteCompDynamicTable = ({
           </Popconfirm>
         ) : null, */}
           <Popconfirm title="Sure to delete?">
-            <a href="#" className={tableInputStatus ? "disabled" : ""}>
+            <a href="#" className={editMode ? "disabled" : ""}>
               <FaRegTrashAlt className="text-sm" />
             </a>
           </Popconfirm>
@@ -352,7 +354,7 @@ const SiteCompDynamicTable = ({
         }}
         scroll={ScrollBar}
         showHeader={showHeader}
-        rowSelection={!tableInputStatus ? rowSelectionn : undefined}
+        rowSelection={!editMode ? rowSelectionn : undefined}
         bordered={bordered}
         expandable={expandedRowRender}
         size={assignedSize}

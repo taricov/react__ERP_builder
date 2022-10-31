@@ -2,16 +2,16 @@ import { Checkbox } from "@mantine/core";
 import React from "react";
 
 interface Props {
-  label: string;
-  desc: string;
-  err: string;
-  color: string;
-  checked: boolean;
-  disabled: boolean;
-  indeterminate: boolean;
+  label?: string;
+  desc?: string;
+  err?: string;
+  color?: string;
+  checked?: boolean;
+  disabled?: boolean;
+  indeterminate?: boolean;
 }
 
-const SiteCheckboxComp = ({
+const SiteCompCheckbox = ({
   label,
   desc = "",
   err = "",
@@ -29,12 +29,12 @@ const SiteCheckboxComp = ({
         color={color}
         size="sm"
         radius="sm"
-        checked
-        disabled
-        indeterminate
+        checked={checked}
+        disabled={disabled}
+        indeterminate={indeterminate}
       />
     </div>
   );
 };
 
-export default SiteCheckboxComp;
+export default SiteCompCheckbox;
