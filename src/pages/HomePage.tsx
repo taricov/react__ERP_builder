@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 const HomePage = () => {
   //FIXME: DND functionality
-  //FIXME: Tooltip not working
 
   return (
     <div className="relative w-screen h-screen flex flex-col items-center justify-center mx-auto my-0">

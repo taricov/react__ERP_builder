@@ -1,7 +1,7 @@
 import React from "react";
 
 const SiteInputComp = () => {
-  return <div>SiteInputComp</div>;
+  return <div></div>;
 };
 
 export default SiteInputComp;

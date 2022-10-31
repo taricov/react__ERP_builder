@@ -23,6 +23,7 @@ interface Props {
   // to: HTMLAnchorElement | string | undefined;
   Icon?: React.ReactNode;
   laoding?: boolean;
+  type?: "button" | "submit" | "reset" | undefined;
   // Icon?: React.ElementType;
 }
 const SiteCompBtn = ({
@@ -31,12 +32,13 @@ const SiteCompBtn = ({
   radius = undefined,
   disabled = false,
   // loading = false,
-  color = "green",
+  color = "bg-primary-600 hover:bg-primary-700 transition-all duration-trans text-white hover:text-white mt-5",
   Icon = undefined,
   component = "a",
   rel = "noopener noreferrer",
   target = "_blank",
   href,
+  type = undefined,
 }: Props) => {
   return (
     <>
@@ -52,6 +54,7 @@ const SiteCompBtn = ({
         disabled={disabled}
         leftIcon={Icon}
         href={href}
+        type={type}
         // loading={loading}
       >
         {title}
