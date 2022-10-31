@@ -17,14 +17,35 @@ const HelperTools = () => {
         Icon={MdOutlineTipsAndUpdates}
         text="Help"
       />
-      <StatusBarComp where="Status" Icon={CgNotes} text="Notes" />
-      <StatusBarComp where="Status" Icon={BiStopwatch} text="Watch" />
-      <StatusBarComp where="Status" Icon={BiSupport} text="Support" />
-      <StatusBarComp where="Status" Icon={VscFeedback} text="Feedback" />
+      <StatusBarComp
+        where="Status"
+        Icon={CgNotes}
+        text="Notes"
+        NoToolTip={true}
+      />
+      <StatusBarComp
+        where="Status"
+        Icon={BiStopwatch}
+        text="Watch"
+        NoToolTip={true}
+      />
+      <StatusBarComp
+        where="Status"
+        Icon={BiSupport}
+        text="Support"
+        NoToolTip={true}
+      />
+      <StatusBarComp
+        where="Status"
+        Icon={VscFeedback}
+        text="Feedback"
+        NoToolTip={true}
+      />
       <StatusBarComp
         where="Status"
         Icon={MdOutlineCalendarViewMonth}
         text="Calendar"
+        NoToolTip={true}
       />
     </div>
   );

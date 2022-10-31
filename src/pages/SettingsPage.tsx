@@ -4,7 +4,7 @@ import SettingsSection from "../components/SettingsSection";
 import SiteCompSearchBar from "../components/site_compsnents/SiteCompSearchBar";
 import SiteCompSlider from "../components/site_compsnents/SiteCompSlider";
 import SiteCompCalendar from "../components/site_compsnents/SiteCompCalendar";
-import SiteCompGROUPchecktoggle from "../components/site_compsnents/SiteCompGROUPchecktoggle";
+import SiteCompToggle from "../components/site_compsnents/SiteCompToggle";
 import SiteCheckboxComp from "../components/site_compsnents/SiteCompCheckbox";
 import SiteCompCheckbox from "../components/site_compsnents/SiteCompCheckbox";
 
@@ -15,7 +15,7 @@ const SettingsPage = () => {
         <SettingsSection title="Global Settings">
           <SettingsRow
             label="Show/Hide Menu Bar"
-            comp={<SiteCompCheckbox />}
+            comp={<SiteCompToggle label="" disabled={false} />}
             desc="Menu Bar contains the app menus and your login status"
             // helptip="omething you should knowomething you should knowomething you should knowomething you should knowomething you should know"
           />

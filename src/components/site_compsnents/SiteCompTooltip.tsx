@@ -2,44 +2,47 @@ import { MantineColor, MantineTransition, Tooltip } from "@mantine/core";
 import React from "react";
 
 interface Props {
-  label: string;
+  label: string | undefined;
   color?: MantineColor | undefined;
   trans?: MantineTransition | undefined;
-  transD?: number;
-  openD?: number;
-  closeD?: number;
+  transitionDuration?: number;
+  openDelay?: number;
+  closeDelay?: number;
   multiline?: boolean;
   position?: string;
   withArrow?: boolean;
-  children?: React.ReactNode;
+  disabled?: boolean;
+  children: React.ReactNode;
 }
 const SiteCompTooltip = ({
   label,
-  //   children,
-  color = "blue",
+  children,
+  color = undefined,
   trans = "slide-up",
-  transD = 0,
-  openD = 300,
-  closeD = 0,
+  transitionDuration = 100,
+  openDelay = 0,
+  closeDelay = 0,
   multiline = false,
   withArrow = true,
+  disabled = false,
 }: Props) => {
   return (
-    <div>
-      <Tooltip
-        label={label}
-        color={color}
-        multiline
-        withArrow
-        position="top"
-        transition={trans}
-        transitionDuration={transD}
-        openDelay={openD}
-        closeDelay={closeD}
-      >
-        {/* {children} */}{" "}
-      </Tooltip>
-    </div>
+    <Tooltip
+      classNames={{ tooltip: "text-xs bg-primary-800" }}
+      label={label}
+      disabled={disabled}
+      color={color}
+      multiline
+      withArrow
+      offset={2}
+      position="top"
+      transition={trans}
+      transitionDuration={transitionDuration}
+      openDelay={openDelay}
+      closeDelay={closeDelay}
+    >
+      <div className="w-full h-full">{children}</div>
+    </Tooltip>
   );
 };
 

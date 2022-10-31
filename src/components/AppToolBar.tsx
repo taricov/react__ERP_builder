@@ -69,12 +69,12 @@ const AppToolBar = () => {
   return (
     <div className="h-8 flex bg-primary-700 items-center ">
       <div
-        className="flex items-center justify-start w-1/2 h-full"
+        className="flex items-center justify-start h-full"
         onClick={useGoBack}
       >
-        <StatusBarComp Icon={AiOutlineArrowLeft} text="" />
+        <StatusBarComp Icon={AiOutlineArrowLeft} text="" NoToolTip={true} />
       </div>
-      <div className="flex items-center justify-end w-1/2 h-full">
+      <div className="flex items-center justify-end w-1/2 h-full flex-1">
         {/* <div className="h-full bg-primary-500">
           <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
         </div> */}
@@ -87,7 +87,7 @@ const AppToolBar = () => {
           />
         </div>
         <div className="h-full" onClick={() => openSpotlight()}>
-          <StatusBarComp Icon={FiSearch} text="" />
+          <StatusBarComp Icon={FiSearch} text="" ThisToolTip="Magic Bar" />
         </div>
         <div className="h-full flex items-center justify-center">
           {seenNotification ? (
@@ -127,9 +127,19 @@ const AppToolBar = () => {
           onClick={soundModeFn}
         >
           {soundMode ? (
-            <StatusBarComp Icon={IoVolumeHighOutline} text="" size="xl" />
+            <StatusBarComp
+              Icon={IoVolumeHighOutline}
+              text=""
+              size="xl"
+              ThisToolTip="Sound On"
+            />
           ) : (
-            <StatusBarComp Icon={IoVolumeMuteOutline} text="" size="xl" />
+            <StatusBarComp
+              Icon={IoVolumeMuteOutline}
+              text=""
+              size="xl"
+              ThisToolTip="Sound Off"
+            />
           )}
         </div>
         <div
@@ -137,9 +147,13 @@ const AppToolBar = () => {
           onClick={darkModeFn}
         >
           {darkMode ? (
-            <StatusBarComp Icon={MdOutlineLightMode} text="" />
+            <StatusBarComp
+              Icon={MdOutlineLightMode}
+              text=""
+              ThisToolTip="Light Mode"
+            />
           ) : (
-            <StatusBarComp Icon={MdLightMode} text="" />
+            <StatusBarComp Icon={MdLightMode} text="" ThisToolTip="Dark Mode" />
           )}
         </div>
         <div
@@ -147,9 +161,13 @@ const AppToolBar = () => {
           onClick={syncModeFn}
         >
           {syncMode ? (
-            <StatusBarComp Icon={VscSync} text="" />
+            <StatusBarComp Icon={VscSync} text="" ThisToolTip="Sync On" />
           ) : (
-            <StatusBarComp Icon={VscSyncIgnored} text="" />
+            <StatusBarComp
+              Icon={VscSyncIgnored}
+              text=""
+              ThisToolTip="Sync Off"
+            />
           )}
         </div>
 

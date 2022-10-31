@@ -33,8 +33,8 @@ const AppMenuBar = () => {
     <div className="w-full flex items-center  bg-primary-800">
       <div className="flex items-center flex-1">
         <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
-        <SiteCompMenu buttonTitle="Go To" w={100} menuItems={goToMenu} />
         <SiteCompMenu buttonTitle="App" w={100} menuItems={appMenu} />
+        <SiteCompMenu buttonTitle="Go To" w={100} menuItems={goToMenu} />
       </div>
       <div className="flex pr-5">
         <Indicator

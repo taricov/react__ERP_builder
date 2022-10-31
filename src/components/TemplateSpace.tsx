@@ -14,15 +14,10 @@ const TemplateSpace: React.FC = () => {
 
   return (
     <div className="w-1/4 flex-1 rounded-panel">
-      <div className="bg-opacity-10 p-1 h-full">
+      <div className="bg-opacity-10 p-1 h-full flex items-start flex-wrap justify-center overflow-hidden">
         <TemplateSpaceRow>
-          <TemplateSpaceSlot
-          // accept={ItemTypes.ELEMENT}
-          // lastDroppedItem
-          // onDrop={(item) => console.log()}
-          // key={1}
-          />
-          {/* <TemplateSpaceSlot /> */}
+          <TemplateSpaceSlot></TemplateSpaceSlot>
+          <TemplateSpaceSlot></TemplateSpaceSlot>
         </TemplateSpaceRow>
       </div>
     </div>
