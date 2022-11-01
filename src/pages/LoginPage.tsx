@@ -10,6 +10,7 @@ import {
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import React from "react";
+import SiteCompBtn from "../components/site_compsnents/SiteCompBtn";
 
 const LoginPage = () => {
   const [visible, { toggle }] = useDisclosure(false);
@@ -44,7 +45,7 @@ const LoginPage = () => {
             />
           </Stack>
           <Group position="right" mt="md">
-            <Button type="submit">Submit</Button>
+            <SiteCompBtn title="Login" type="submit" component={"button"} />
           </Group>
         </form>
       </div>
