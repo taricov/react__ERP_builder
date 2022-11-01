@@ -15,6 +15,7 @@ import {
   Divider,
   Modal,
   SimpleGrid,
+  Text,
   TextInput,
   Tooltip,
   useMantineTheme,
@@ -30,6 +31,7 @@ import SiteCompModal from "../components/site_compsnents/SiteCompModal";
 import SiteCompToggle from "../components/site_compsnents/SiteCompToggle";
 
 import SiteCompGROUPchecktoggle from "../components/site_compsnents/SiteCompGROUPchecktoggle";
+import SiteCompBtn from "../components/site_compsnents/SiteCompBtn";
 
 const HomePage = () => {
   const [createApp, setCreateApp] = useState(false);
@@ -62,10 +64,10 @@ const HomePage = () => {
           onClose={() => setCreateApp(false)}
         > */}
         <Modal
-          // classNames={{
-          //   modal:
-          //     "bg-gradient-to-r from-skin-hue2 to-skin-hue0 w-11/12 overflow-auto h-3/4 p-0",
-          // }}
+          classNames={{
+            modal:
+              "bg-gradient-to-r from-skin-hue2 to-skin-hue0 overflow-auto p-0",
+          }}
           className="overflow-scroll h-auto"
           opened={createApp}
           onClose={() => setCreateApp(false)}
@@ -75,13 +77,32 @@ const HomePage = () => {
           overlayOpacity={0.75}
           overlayBlur={0}
         >
-          <Box className="p-10">
-            <SimpleGrid cols={2} p={10}>
+          <Text
+            p={4}
+            mb={10}
+            align="center"
+            className="font-bold text-xl px-2 py-5 w-full bg-primary-500 text-bg-rev"
+          >
+            New App
+          </Text>
+          <Box className="px-10">
+            <SimpleGrid cols={2}>
               <TextInput label="App Name" withAsterisk />
               <TextInput label="Key" />
 
-              <SiteCompToggle label="Status" disabled={false} />
+              <SiteCompToggle
+                label="Active/InActive"
+                disabled={false}
+                labelPostion="left"
+              />
             </SimpleGrid>
+          </Box>
+          <Box className="w-full text-center my-5">
+            <SiteCompBtn
+              title="Build"
+              href={"/App_name/builder"}
+              target="_self"
+            />
           </Box>
 
           {/* </SiteCompModal> */}
