@@ -50,102 +50,100 @@ const RegistrationPage = () => {
     "htttps://https://wft-geo-db.p.rapidapi.com/v1/geo/countries"
   ).then((res) => console.log(res));
   return (
-    <div className="relative w-screen h-screen flex flex-col items-center justify-center mx-auto my-0 bg-gradient-to-r from-skin-hue2 to-skin-hue0  pt-10">
-      <Box py={30}>
-        <Text align="center" className="text-3xl font-bold text-gray-darkest">
-          Registration
-        </Text>
-        <Text align="center" className="text-xl  text-gray-darkest">
-          Create a new account!
-        </Text>
-      </Box>
-      <Box sx={{ maxWidth: "70%" }} mx="auto">
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
-          <SimpleGrid cols={2}>
-            <TextInput
-              classNames={{ input: "" }}
-              withAsterisk
-              label="Name"
-              placeholder="Patrick Joe"
-              {...form.getInputProps("name")}
-            />
-            <TextInput
-              withAsterisk
-              label="Business Name"
-              placeholder="Joe"
-              {...form.getInputProps("bizName")}
-            />
-          </SimpleGrid>
-          <SimpleGrid cols={3}>
-            <Select
-              withAsterisk
-              label="Country"
-              placeholder="Search Countries"
-              searchable
-              nothingFound="No Country Found"
-              data={["CountriesArray"]}
-            />
-            <TextInput
-              withAsterisk
-              label="Country"
-              placeholder="USA"
-              {...form.getInputProps("country")}
-            />
-            <TextInput
-              withAsterisk
-              label="City"
-              placeholder="Manhanten"
-              {...form.getInputProps("city")}
-            />
-            <TextInput
-              label="Zip Code"
-              placeholder="34723"
-              {...form.getInputProps("zipCode")}
-            />
-          </SimpleGrid>
-          <TextInput
-            withAsterisk
-            label="Email"
-            placeholder="your@email.com"
-            {...form.getInputProps("email")}
-          />
+    <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-skin-hue2 to-skin-hue0 ">
+      <div className=" bg-gradient-to-r from-skin-hue2 to-skin-hue0 flex flex-col items-center justify-around bg-white rounded-lg shadow-lg overflow-hidden mx-auto w-3/4 h-3/4">
+        {/* <div className="relative w-screen h-screen flex flex-col items-center justify-center mx-auto my-0 bg-gradient-to-r from-skin-hue2 to-skin-hue0  pt-10"> */}
+        <Box py={30}>
+          <Text align="center" className="text-3xl font-bold text-gray-darkest">
+            Registration
+          </Text>
+          <Text align="center" className="text-xl  text-gray-darkest">
+            Create a new account!
+          </Text>
+        </Box>
+        <Box sx={{ maxWidth: "70%" }} mx="auto">
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <SimpleGrid cols={2}>
+              <TextInput
+                classNames={{ input: "" }}
+                withAsterisk
+                label="Name"
+                placeholder="Patrick Joe"
+                {...form.getInputProps("name")}
+              />
+              <TextInput
+                withAsterisk
+                label="Business Name"
+                placeholder="Joe"
+                {...form.getInputProps("bizName")}
+              />
+            </SimpleGrid>
+            <SimpleGrid cols={3}>
+              <Select
+                withAsterisk
+                label="Country"
+                placeholder="Search Countries"
+                searchable
+                nothingFound="No Country Found"
+                data={["CountriesArray"]}
+              />
 
-          <SimpleGrid
-            cols={2}
-            className="flex items-start justify-center w-1/2"
-          >
-            <div className="w-full">
-              <SiteCompPasswordInput />
-            </div>
-            <PasswordInput
-              className="w-full"
-              label="Confirm password"
+              <TextInput
+                label="City"
+                placeholder="Manhanten"
+                {...form.getInputProps("city")}
+              />
+              <TextInput
+                label="Zip Code"
+                placeholder="34723"
+                {...form.getInputProps("zipCode")}
+              />
+            </SimpleGrid>
+            <TextInput
               withAsterisk
+              className="w-1/2"
+              label="Email"
+              placeholder="your@email.com"
+              {...form.getInputProps("email")}
             />
-          </SimpleGrid>
 
-          <Checkbox
-            classNames={{
-              input: "cursor-pointer",
-              label: "cursor-pointer",
-            }}
-            description="By hitting Register that meana you agree to all Services Agreement about privacy and cookies."
-            mt="md"
-            size="xs"
-            label="Terms and Conditions"
-            {...form.getInputProps("termsOfService", { type: "checkbox" })}
-          />
-
-          <Group position="right" mt="md">
-            <Button
-              className="bg-primary-600 hover:bg-primary-700 transition-all duration-trans text-white hover:text-white mt-5"
-              type="submit"
+            <SimpleGrid
+              cols={1}
+              className="flex items-start justify-center w-1/2"
             >
-              Register
-            </Button>
-          </Group>
-        </form>
-      </Box>
+              {/* <div className="w-full"> */}
+              <SiteCompPasswordInput />
+              {/* </div> */}
+              <PasswordInput
+                // className="w-full"
+                label="Confirm password"
+                withAsterisk
+              />
+            </SimpleGrid>
+
+            <Checkbox
+              classNames={{
+                input: "cursor-pointer",
+                label: "cursor-pointer",
+              }}
+              description="By hitting Register that meana you agree to all Services Agreement about privacy and cookies."
+              mt="md"
+              size="xs"
+              label="Terms and Conditions"
+              {...form.getInputProps("termsOfService", { type: "checkbox" })}
+            />
+
+            <Group position="right" mt="md">
+              <Button
+                className="bg-primary-600 hover:bg-primary-700 transition-all duration-trans text-white hover:text-white mt-5"
+                type="submit"
+              >
+                Register
+              </Button>
+            </Group>
+          </form>
+        </Box>
+      </div>
     </div>
   );
 };
