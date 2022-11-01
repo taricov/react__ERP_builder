@@ -1,13 +1,15 @@
 import React, { SVGProps, forwardRef } from "react";
+import { FunctionBody } from "typescript";
 
 interface Props {
   title: string;
   href: string;
   desc: string;
+  onClk?: () => void;
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
-const ButtonCard = forwardRef<HTMLDivElement, Props>(
+export const ButtonCard = forwardRef<HTMLDivElement, Props>(
   ({ title, desc, Icon, href }, ref) => {
     return (
       <>
@@ -32,4 +34,23 @@ const ButtonCard = forwardRef<HTMLDivElement, Props>(
   }
 );
 
-export default ButtonCard;
+export const ButtonCardAdd = forwardRef<HTMLDivElement, Props>(
+  ({ title, desc, Icon, href, onClk }, ref) => {
+    return (
+      <>
+        <a
+          // ref={ref}
+          onClick={onClk}
+          href={href}
+          className={`flex flex-col items-center justify-center mx-2 block text-gray-darkest h-fit w-1/3  hover:text-gray-darker text-lg p-6 rounded-panel border-2 border-slate-300 hover:border-slate-600  transition-all duration-trans text-center`}
+        >
+          <div className="p-10">{<Icon className="text-7xl m-auto " />}</div>
+          <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-white">
+            {title}
+          </h5>
+          <p className="font-normal text-sm  dark:text-gray-400">{desc}</p>
+        </a>
+      </>
+    );
+  }
+);

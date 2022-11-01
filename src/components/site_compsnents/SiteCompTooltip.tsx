@@ -18,7 +18,7 @@ const SiteCompTooltip = ({
   label,
   children,
   color = undefined,
-  trans = "slide-up",
+  trans = "fade",
   transitionDuration = 100,
   openDelay = 0,
   closeDelay = 0,

@@ -46,6 +46,9 @@ const RegistrationPage = () => {
     validate: zodResolver(registrationSchema),
   });
 
+  const CountriesArray = fetch(
+    "htttps://https://wft-geo-db.p.rapidapi.com/v1/geo/countries"
+  ).then((res) => console.log(res));
   return (
     <div className="relative w-screen h-screen flex flex-col items-center justify-center mx-auto my-0 bg-gradient-to-r from-skin-hue2 to-skin-hue0  pt-10">
       <Box py={30}>
@@ -77,10 +80,10 @@ const RegistrationPage = () => {
             <Select
               withAsterisk
               label="Country"
-              placeholder=""
+              placeholder="Search Countries"
               searchable
-              nothingFound="No country found"
-              data={["React", "Angular", "Svelte", "Vue"]}
+              nothingFound="No Country Found"
+              data={["CountriesArray"]}
             />
             <TextInput
               withAsterisk

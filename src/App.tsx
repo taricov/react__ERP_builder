@@ -20,9 +20,9 @@ function App() {
       <ShortcutsModal />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="module_name/builder" element={<FormBuildingPage />} />
-        <Route path="/add_app" element={<AddNewModulePage />} />
-        <Route path="/module_name" element={<ModulePage />} />
+        <Route path="/app_name/builder" element={<FormBuildingPage />} />
+        {/* <Route path="/new_app" element={<AddNewModulePage />} /> */}
+        <Route path="/app_name" element={<ModulePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/settings" element={<SettingsPage />} />
