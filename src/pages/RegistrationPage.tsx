@@ -5,37 +5,45 @@ import {
   Grid,
   Group,
   Input,
+  PasswordInput,
+  Select,
   SimpleGrid,
   Stack,
   Text,
   TextInput,
 } from "@mantine/core";
-import { useForm } from "@mantine/form";
+import { useForm, zodResolver } from "@mantine/form";
 import { z } from "zod";
-import SiteCompBtn from "../components/site_compsnents/SiteCompBtn";
+import { SiteCompPasswordInput } from "../components/site_compsnents/SiteCompPasswordInput";
 
-const schema = z.object({
+const registrationSchema = z.object({
   name: z.string().min(2, { message: "Name should have at least 2 letters" }),
   bizName: z
     .string()
     .min(2, { message: "Business name should have at least 2 letters" }),
-  email: z.string().email({ message: "Invalid Email" }),
+  email: z
+    .string({ required_error: "Email is Required" })
+    .email({ message: "Invalid Email" }),
   subdomain: z
-    .string()
+    .string({ required_error: "Domain name is Required" })
     .min(5, { message: "Your domain should be 5 letters up" }),
-  password: z.string().min(8, { message: "Invalid Password" }),
+  password: z
+    .string({ required_error: "Password is Required" })
+    .min(8, { message: "Invalid Password" }),
 });
 
 const RegistrationPage = () => {
   const form = useForm({
     initialValues: {
+      name: "",
+      bizName: "",
       email: "",
+      subdomain: "",
+      passowrd: "",
+      confirmedPassword: "",
       termsOfService: false,
     },
-
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-    },
+    validate: zodResolver(registrationSchema),
   });
 
   return (
@@ -54,18 +62,26 @@ const RegistrationPage = () => {
             <TextInput
               classNames={{ input: "" }}
               withAsterisk
-              label="First Name"
-              placeholder="Patrick"
-              {...form.getInputProps("firsName")}
+              label="Name"
+              placeholder="Patrick Joe"
+              {...form.getInputProps("name")}
             />
             <TextInput
               withAsterisk
-              label="Last Name"
+              label="Business Name"
               placeholder="Joe"
-              {...form.getInputProps("lastName")}
+              {...form.getInputProps("bizName")}
             />
           </SimpleGrid>
           <SimpleGrid cols={3}>
+            <Select
+              withAsterisk
+              label="Country"
+              placeholder=""
+              searchable
+              nothingFound="No country found"
+              data={["React", "Angular", "Svelte", "Vue"]}
+            />
             <TextInput
               withAsterisk
               label="Country"
@@ -90,18 +106,18 @@ const RegistrationPage = () => {
             placeholder="your@email.com"
             {...form.getInputProps("email")}
           />
-          <SimpleGrid className="w-1/2">
-            <TextInput
+
+          <SimpleGrid
+            cols={2}
+            className="flex items-start justify-center w-1/2"
+          >
+            <div className="w-full">
+              <SiteCompPasswordInput />
+            </div>
+            <PasswordInput
+              className="w-full"
+              label="Confirm password"
               withAsterisk
-              label="Password"
-              placeholder="***********"
-              {...form.getInputProps("password")}
-            />
-            <TextInput
-              withAsterisk
-              label="Confirm Password"
-              placeholder="***********"
-              {...form.getInputProps("password2")}
             />
           </SimpleGrid>
 
