@@ -1,27 +1,23 @@
-import { Avatar, Group, Indicator } from "@mantine/core";
-import { useHotkeys, useToggle } from "@mantine/hooks";
-import React, { useState } from "react";
+import { Indicator } from "@mantine/core";
+import { openSpotlight } from "@mantine/spotlight";
+import { useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineSetting } from "react-icons/ai";
+import { FiSearch } from "react-icons/fi";
 import {
   IoAddSharp,
   IoVolumeHighOutline,
   IoVolumeMuteOutline,
 } from "react-icons/io5";
-import { useGoBack } from "../custom_hooks/useBackUrl";
-import { FiSearch } from "react-icons/fi";
-import Yousra from "../assets/2.jpg";
 import {
   MdLightMode,
   MdOutlineLightMode,
   MdOutlineNotificationsActive,
-  MdOutlineNotificationsNone,
   MdOutlineNotificationsOff,
 } from "react-icons/md";
-import StatusBarComp from "./StatusBarComp";
 import { VscSync, VscSyncIgnored } from "react-icons/vsc";
-import { openSpotlight } from "@mantine/spotlight";
+import { useGoBack } from "../custom_hooks/useBackUrl";
 import SiteCompIconDropDown from "./site_compsnents/SiteCompIconDropDown";
-import { notification } from "antd";
+import StatusBarComp from "./StatusBarComp";
 
 // const summonSpotLight = useHotkeys()
 

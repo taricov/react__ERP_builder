@@ -14,10 +14,10 @@ import SettingsPage from "./pages/SettingsPage";
 import RegistrationPage from "./pages/RegistrationPage";
 
 function App() {
-  const [darkMode, setDarkMode] = useState();
+  // const [darkMode, setDarkMode] = useState();
 
   return (
-    <div className={darkMode}>
+    <div className={"dark"}>
       <AppTopBar />
       <ShortcutsModal />
       <Routes>

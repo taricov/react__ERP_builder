@@ -35,7 +35,7 @@ const StatusBarComp = ({
         <span className="flex items-center">
           <Icon className={`text-${size} ${statusColor}`} />
         </span>
-        <p className={`px-1 ${statusColor}`}>{text}</p>
+        <p className={`px-1 ${statusColor} hidden md:block`}>{text}</p>
       </div>
     </SiteCompTooltip>
   );
