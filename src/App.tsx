@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import FormBuildingPage from "./pages/FormBuildingPage";
 import HomePage from "./pages/HomePage";
 import StatusBar from "./components/StatusBar";
@@ -16,9 +22,18 @@ import RegistrationPage from "./pages/RegistrationPage";
 function App() {
   // const [darkMode, setDarkMode] = useState();
 
+  const url = useLocation();
+  const currPage = url.pathname;
+  const [hideBars, setHideBars] = useState(
+    currPage === "/register" || currPage === "/login" ? true : false
+  );
   return (
     <div className={"dark"}>
-      <AppTopBar />
+      {!hideBars ? (
+        <>
+          <AppTopBar />
+        </>
+      ) : null}
       <ShortcutsModal />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -31,7 +46,11 @@ function App() {
         <Route path="*" element={<Error404Page />} />
       </Routes>
       {/* <NavBar /> */}
-      <StatusBar />
+      {!hideBars ? (
+        <>
+          <StatusBar />
+        </>
+      ) : null}
     </div>
   );
 }

@@ -35,14 +35,14 @@ const LoginPage = () => {
   });
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-skin-hue2 to-skin-hue0 dark:bg-black dark:from-black dark:to-slate-800">
-      <div className="flex flex-col items-center justify-around rounded-lg shadow-lg overflow-hidden mx-auto w-1/2 h-1/2 bg-gradient-to-r from-skin-hue2 to-skin-hue0 dark:bg-black dark:from-black dark:to-slate-800">
+    <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-skin-hue2 to-skin-hue0 dark:bg-black dark:from-black dark:to-slate-800 ">
+      <div className="flex flex-col items-center justify-around rounded-lg shadow-lg overflow-hidden mx-auto w-1/2 h-1/2 bg-gradient-to-r from-skin-hue2 to-skin-hue0 dark:bg-black dark:from-black dark:to-slate-800 dark:shadow-slate-800">
         <Box className="flex flex-col items-center justify-center ">
           <Text className="font-bold text-4xl mt-5">Login</Text>
           <Text className="text-md ">Access to your business</Text>
         </Box>
         <form
-          className="w-2/3"
+          className="w-1/2"
           onSubmit={loginForm.onSubmit((values) => console.log(values))}
         >
           <Stack mx="auto w-full">
@@ -53,6 +53,7 @@ const LoginPage = () => {
               {...loginForm.getInputProps("email")}
             />
             <PasswordInput
+              placeholder="Your Password"
               className="w-full"
               label="Password"
               visible={visible}

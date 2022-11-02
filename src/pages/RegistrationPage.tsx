@@ -42,7 +42,8 @@ const RegistrationPage = () => {
     },
     validate: zodResolver(registrationSchema),
   });
-
+  //TODO: dropdown all countries
+  //TODO: Hide
   const CountriesArray = fetch(
     "htttps://https://wft-geo-db.p.rapidapi.com/v1/geo/countries"
   ).then((res) => console.log(res));
