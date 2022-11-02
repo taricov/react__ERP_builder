@@ -2,13 +2,10 @@ import {
   Box,
   Button,
   Checkbox,
-  Grid,
   Group,
-  Input,
   PasswordInput,
   Select,
   SimpleGrid,
-  Stack,
   Text,
   TextInput,
 } from "@mantine/core";
@@ -33,7 +30,7 @@ const registrationSchema = z.object({
 });
 
 const RegistrationPage = () => {
-  const form = useForm({
+  const registarationForm = useForm({
     initialValues: {
       name: "",
       bizName: "",
@@ -68,20 +65,24 @@ const RegistrationPage = () => {
           </Text>
         </Box>
         <Box sx={{ maxWidth: "70%" }} mx="auto">
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+          <form
+            onSubmit={registarationForm.onSubmit((values) =>
+              console.log(values)
+            )}
+          >
             <SimpleGrid cols={2}>
               <TextInput
                 classNames={{ input: "" }}
                 withAsterisk
                 label="Name"
                 placeholder="Patrick Joe"
-                {...form.getInputProps("name")}
+                {...registarationForm.getInputProps("name")}
               />
               <TextInput
                 withAsterisk
                 label="Business Name"
                 placeholder="Joe"
-                {...form.getInputProps("bizName")}
+                {...registarationForm.getInputProps("bizName")}
               />
             </SimpleGrid>
             <SimpleGrid cols={3}>
@@ -97,12 +98,12 @@ const RegistrationPage = () => {
               <TextInput
                 label="City"
                 placeholder="Manhanten"
-                {...form.getInputProps("city")}
+                {...registarationForm.getInputProps("city")}
               />
               <TextInput
                 label="Zip Code"
                 placeholder="34723"
-                {...form.getInputProps("zipCode")}
+                {...registarationForm.getInputProps("zipCode")}
               />
             </SimpleGrid>
             <TextInput
@@ -110,7 +111,7 @@ const RegistrationPage = () => {
               className="w-1/2"
               label="Email"
               placeholder="your@email.com"
-              {...form.getInputProps("email")}
+              {...registarationForm.getInputProps("email")}
             />
 
             <SimpleGrid cols={1} className="flex justify-center my-2">
@@ -131,7 +132,9 @@ const RegistrationPage = () => {
               mt="md"
               size="xs"
               label="Terms and Conditions"
-              {...form.getInputProps("termsOfService", { type: "checkbox" })}
+              {...registarationForm.getInputProps("termsOfService", {
+                type: "checkbox",
+              })}
             />
 
             <Group position="right" mt="md">
