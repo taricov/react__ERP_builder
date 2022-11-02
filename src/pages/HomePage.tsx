@@ -37,7 +37,6 @@ const HomePage = () => {
   const [createApp, setCreateApp] = useState(false);
   console.log(createApp);
   const theme = useMantineTheme();
-
   return (
     <div className="relative w-screen h-screen flex flex-col items-center justify-center mx-auto my-0">
       <main className=" flex items-center flex-col justify-center m-auto w-full h-full bg-gradient-to-r from-skin-hue2 to-skin-hue0  pt-10">

@@ -67,7 +67,8 @@ const AppToolBar = () => {
     localStorage.setItem("syncMode", JSON.stringify(!syncMode));
   };
   return (
-    <div className="h-8 flex bg-primary-700 items-center ">
+    <div className="h-8 flex items-center ">
+      {/* bg-primary-700  */}
       <div
         className="flex items-center justify-start h-full"
         onClick={useGoBack}
@@ -78,10 +79,17 @@ const AppToolBar = () => {
         {/* <div className="h-full bg-primary-500">
           <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
         </div> */}
-        <div className="h-full bg-primary-500 flex items-center justify-center">
+        <div className="h-full bg-slate-800 flex items-center justify-center">
           <SiteCompIconDropDown
             buttonTitle=""
-            menuIcon={<StatusBarComp Icon={IoAddSharp} text="" size="2xl" />}
+            menuIcon={
+              <StatusBarComp
+                NoToolTip={true}
+                Icon={IoAddSharp}
+                text=""
+                size="2xl"
+              />
+            }
             w={100}
             menuItems={addBtnItems}
           />
@@ -104,7 +112,11 @@ const AppToolBar = () => {
                 buttonTitle=""
                 trigger="click"
                 menuIcon={
-                  <StatusBarComp Icon={MdOutlineNotificationsActive} text="" />
+                  <StatusBarComp
+                    NoToolTip
+                    Icon={MdOutlineNotificationsActive}
+                    text=""
+                  />
                 }
                 w={100}
                 menuItems={addBtnItems}
@@ -115,7 +127,11 @@ const AppToolBar = () => {
               buttonTitle=""
               trigger="click"
               menuIcon={
-                <StatusBarComp Icon={MdOutlineNotificationsOff} text="" />
+                <StatusBarComp
+                  NoToolTip
+                  Icon={MdOutlineNotificationsOff}
+                  text=""
+                />
               }
               w={100}
               menuItems={addBtnItems}
@@ -174,7 +190,9 @@ const AppToolBar = () => {
         <div className="h-full flex items-center justify-center">
           <SiteCompIconDropDown
             buttonTitle=""
-            menuIcon={<StatusBarComp Icon={AiOutlineSetting} text="" />}
+            menuIcon={
+              <StatusBarComp NoToolTip Icon={AiOutlineSetting} text="" />
+            }
             w={100}
             menuItems={settingsBtnItems}
           />
@@ -203,6 +221,5 @@ const AppToolBar = () => {
     </div>
   );
 };
-//TODO: StatusBar: Notification (OtherInfo)
 
 export default AppToolBar;

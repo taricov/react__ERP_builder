@@ -39,7 +39,7 @@ const SiteCompIconDropDown = ({
           </Text>
         </Menu.Target>
 
-        <Menu.Dropdown className="rounded-t-none rounded-b-md bg-primary-800 shadow-md border-none">
+        <Menu.Dropdown className="rounded-t-none rounded-b-md bg-primary-800 shadow-md border-none dark:bg-slate-700">
           {menuItems.map((val) => {
             return (
               <Menu.Item

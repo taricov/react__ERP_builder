@@ -24,7 +24,9 @@ const StatusBarComp = ({
   onClick,
 }: Props) => {
   let hoveEffect =
-    where === "Status" ? "hover:contrast-0" : "hover:bg-primary-600";
+    where === "Status"
+      ? "hover:contrast-0"
+      : "hover:bg-primary-600 dark:hover:bg-slate-700";
   return (
     <SiteCompTooltip label={ThisToolTip} disabled={NoToolTip}>
       <div

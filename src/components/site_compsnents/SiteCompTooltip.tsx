@@ -28,7 +28,7 @@ const SiteCompTooltip = ({
 }: Props) => {
   return (
     <Tooltip
-      classNames={{ tooltip: "text-xs bg-primary-800" }}
+      classNames={{ tooltip: "text-xs bg-primary-800 dark:bg-slate-700" }}
       label={label}
       disabled={disabled}
       color={color}

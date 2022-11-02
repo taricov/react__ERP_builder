@@ -8,6 +8,7 @@ import { SpotlightAction, SpotlightProvider } from "@mantine/spotlight";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
 import { SlDocs } from "react-icons/sl";
+import { MantineProvider } from "@mantine/styles";
 interface Props {
   children?: React.ReactNode;
   // any props that come into the component
@@ -53,27 +54,33 @@ const Wrapper = ({ children }: Props): any => {
 //TODO: Add Shortcuts section
 root.render(
   <>
-    <SpotlightProvider
-      classNames={{
-        searchInput: "bg-primary-100",
-        actions: "p-0",
-        action: "rounded-none border-b-4",
-        actionHovered: "bg-primary-200",
-      }}
-      actions={defaultSpotlightActions}
-      searchIcon={<FiSearch />}
-      searchPlaceholder="Search..."
-      shortcut={["mod + K"]}
-      nothingFoundMessage="Nothing found..."
+    <MantineProvider
+      theme={{ colorScheme: "dark" }}
+      withGlobalStyles
+      withNormalizeCSS
     >
-      <BrowserRouter>
-        <Wrapper>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
-        </Wrapper>
-      </BrowserRouter>
-    </SpotlightProvider>
+      <SpotlightProvider
+        classNames={{
+          searchInput: "bg-primary-100",
+          actions: "p-0",
+          action: "rounded-none border-b-4",
+          actionHovered: "bg-primary-200",
+        }}
+        actions={defaultSpotlightActions}
+        searchIcon={<FiSearch />}
+        searchPlaceholder="Search..."
+        shortcut={["mod + K"]}
+        nothingFoundMessage="Nothing found..."
+      >
+        <BrowserRouter>
+          <Wrapper>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
+          </Wrapper>
+        </BrowserRouter>
+      </SpotlightProvider>
+    </MantineProvider>
   </>
 );
 

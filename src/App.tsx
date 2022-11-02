@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import FormBuildingPage from "./pages/FormBuildingPage";
 import HomePage from "./pages/HomePage";
@@ -14,8 +14,10 @@ import SettingsPage from "./pages/SettingsPage";
 import RegistrationPage from "./pages/RegistrationPage";
 
 function App() {
+  const [darkMode, setDarkMode] = useState();
+
   return (
-    <div className="">
+    <div className={darkMode}>
       <AppTopBar />
       <ShortcutsModal />
       <Routes>

@@ -50,14 +50,20 @@ const RegistrationPage = () => {
     "htttps://https://wft-geo-db.p.rapidapi.com/v1/geo/countries"
   ).then((res) => console.log(res));
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-skin-hue2 to-skin-hue0 ">
-      <div className=" bg-gradient-to-r from-skin-hue2 to-skin-hue0 flex flex-col items-center justify-around bg-white rounded-lg shadow-lg overflow-hidden mx-auto w-3/4 h-3/4">
+    <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-r from-skin-hue2 to-skin-hue0 dark:bg-black dark:from-black dark:to-slate-800">
+      <div className=" bg-gradient-to-r from-skin-hue2 to-skin-hue0 flex flex-col items-center justify-around bg-white rounded-lg shadow-lg overflow-hidden mx-auto w-3/4 h-3/4 dark:shadow-slate-800 dark:bg-black dark:from-black dark:to-slate-800  ">
         {/* <div className="relative w-screen h-screen flex flex-col items-center justify-center mx-auto my-0 bg-gradient-to-r from-skin-hue2 to-skin-hue0  pt-10"> */}
         <Box py={30}>
-          <Text align="center" className="text-3xl font-bold text-gray-darkest">
+          <Text
+            align="center"
+            className="text-3xl font-bold text-gray-darkest dark:text-slate-300"
+          >
             Registration
           </Text>
-          <Text align="center" className="text-xl  text-gray-darkest">
+          <Text
+            align="center"
+            className="text-xl  text-gray-darkest dark:text-slate-300"
+          >
             Create a new account!
           </Text>
         </Box>
@@ -135,7 +141,7 @@ const RegistrationPage = () => {
 
             <Group position="right" mt="md">
               <Button
-                className="bg-primary-600 hover:bg-primary-700 transition-all duration-trans text-white hover:text-white mt-5"
+                className="bg-primary-600 dark:bg-slate-800 shadow-sm dark:hover:bg-slate-700 dark:text-gray-dark  hover:bg-primary-700 transition-all duration-trans text-white hover:text-white mt-5 dark:text-slate-300"
                 type="submit"
               >
                 Register
