@@ -113,17 +113,12 @@ const RegistrationPage = () => {
               {...form.getInputProps("email")}
             />
 
-            <SimpleGrid
-              cols={1}
-              className="flex items-start justify-center w-1/2"
-            >
-              {/* <div className="w-full"> */}
+            <SimpleGrid cols={1} className="flex justify-center my-2">
               <SiteCompPasswordInput />
-              {/* </div> */}
               <PasswordInput
-                // className="w-full"
                 label="Confirm password"
                 withAsterisk
+                className="w-full"
               />
             </SimpleGrid>
 

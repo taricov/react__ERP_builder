@@ -56,7 +56,7 @@ export function SiteCompPasswordInput() {
   const color = strength === 100 ? "teal" : strength > 50 ? "yellow" : "red";
 
   return (
-    <div style={{ maxWidth: 340, margin: "auto" }}>
+    <Box className="w-full">
       <Popover
         opened={popoverOpened}
         position="bottom"
@@ -91,6 +91,6 @@ export function SiteCompPasswordInput() {
           {checks}
         </Popover.Dropdown>
       </Popover>
-    </div>
+    </Box>
   );
 }
