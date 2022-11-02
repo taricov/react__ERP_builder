@@ -63,8 +63,7 @@ const AppToolBar = () => {
     localStorage.setItem("syncMode", JSON.stringify(!syncMode));
   };
   return (
-    <div className="h-8 flex items-center ">
-      {/* bg-primary-700  */}
+    <div className="h-8 flex items-center bg-primary-700 dark:bg-none">
       <div
         className="flex items-center justify-start h-full"
         onClick={useGoBack}
@@ -75,7 +74,7 @@ const AppToolBar = () => {
         {/* <div className="h-full bg-primary-500">
           <StatusBarComp Icon={IoAddSharp} text="" size="2xl" />
         </div> */}
-        <div className="h-full bg-slate-800 flex items-center justify-center">
+        <div className="h-full bg-primary-800 dark:bg-slate-800 flex items-center justify-center">
           <SiteCompIconDropDown
             buttonTitle=""
             menuIcon={

@@ -28,7 +28,7 @@ function App() {
     currPage === "/register" || currPage === "/login" ? true : false
   );
   return (
-    <div className={"dark"}>
+    <div className={""}>
       {!hideBars ? (
         <>
           <AppTopBar />

@@ -28,7 +28,7 @@ const SiteCompMenu = ({
         offset={offset}
       >
         <Menu.Target>
-          <Text className="font-light px-2 py-0 rounded-none text-sm transition-colors duration-trans cursor-pointer hover:bg-slate-500">
+          <Text className="font-light px-2 py-0 rounded-none text-sm dark:text-slate-300 transition-colors duration-trans cursor-pointer hover:bg-primary-700 dark:hover:bg-slate-500 ">
             {buttonTitle}
           </Text>
         </Menu.Target>
@@ -39,7 +39,7 @@ const SiteCompMenu = ({
               <Menu.Item
                 component="a"
                 href={val.href}
-                className="text-xs p-1 text-white hover:text-slate-700"
+                className="text-xs p-1 text-white hover:text-slate-700 "
               >
                 {val.title}
               </Menu.Item>

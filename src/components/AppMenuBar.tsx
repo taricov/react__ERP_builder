@@ -30,8 +30,7 @@ const AppMenuBar = () => {
   // const visitedURLs = useRecentlyVisitedURLs();
   // console.log(visitedURLs);
   return (
-    <div className="w-full flex items-center ">
-      {/* bg-primary-800 */}
+    <div className="w-full flex items-center bg-primary-800 dark:bg-none">
       <div className="flex items-center flex-1">
         <SiteCompMenu buttonTitle="File" w={100} menuItems={fileMenu} />
         <SiteCompMenu buttonTitle="App" w={100} menuItems={appMenu} />
