@@ -1,10 +1,21 @@
+//TODO: Animate the table Edit transition
+//TODO: Expand Table hight :: => Detect metadata section status (expanded/collapsed)
+//TODO: Animate the table Edit transition
+//TODO: Animate the table Edit transition
+
 import { Drawer, SimpleGrid, TextInput, useMantineTheme } from "@mantine/core";
 import { Button, Dropdown, Popconfirm, Menu } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import Table, { ColumnsType } from "antd/lib/table";
 import { ExpandableConfig, TableRowSelection } from "antd/lib/table/interface";
 import { PanelRender } from "rc-table/lib/interface";
-import React, { MouseEventHandler, useContext, useState } from "react";
+import React, {
+  MouseEventHandler,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { BsArrowRightSquareFill, BsTrash } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FiEdit, FiSearch } from "react-icons/fi";
@@ -17,6 +28,7 @@ import TableSettings from "../TableSettings";
 import $ from "jquery";
 import SiteCompSearchBar from "./SiteCompSearchBar";
 import { moduleMetaDataCtx } from "../ModuleMetaData";
+import autoAnimate from "@formkit/auto-animate";
 
 const actionItemList: MenuProps["items"] = [
   {
@@ -79,6 +91,10 @@ const SiteCompDynamicTable = ({
   pagination = true,
   assignedSize,
 }: tblProps) => {
+  const tblRef = useRef(null);
+  useEffect(() => {
+    tblRef.current && autoAnimate(tblRef.current);
+  }, [tblRef]);
   const [ScrollBar, setScrollBar] = useState<
     | ({
         x?: string | number | true | undefined;
@@ -109,7 +125,7 @@ const SiteCompDynamicTable = ({
   const start = () => {
     setLoading(true);
     setEditMode((editMode) => !editMode);
-
+    tblRef.current && autoAnimate(tblRef.current);
     // !editMode
     //   ? $("table tr td:first-child input").attr("disabled", "disabled")
     //   : $("table tr td:first-child input").removeAttr("disabled");
@@ -329,6 +345,7 @@ const SiteCompDynamicTable = ({
         </div>
       </div>
       <Table
+        ref={tblRef}
         className=""
         rowClassName={(record, index) =>
           index % 2 === 0

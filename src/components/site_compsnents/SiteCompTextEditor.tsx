@@ -9,7 +9,19 @@ const SiteCompTextEditor = () => {
 
   return (
     <div>
-      <RichTextEditor value={value} onChange={onChange} id="rte" />
+      <RichTextEditor
+        value={value}
+        onChange={onChange}
+        placeholder="Pass your Todo(s)"
+        classNames={{
+          root: "",
+          toolbar: "",
+          toolbarControl: "hidden",
+          toolbarInner: "",
+        }}
+        // controls={[["bold", "strike", "underline", "italic"]]}
+        id="rte"
+      />
     </div>
   );
 };

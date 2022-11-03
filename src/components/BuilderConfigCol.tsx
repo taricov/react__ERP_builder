@@ -1,70 +1,56 @@
 import React from "react";
 import BuilderConfigColRow from "./BuilderConfigColRow";
-import { Input, Switch } from "@mantine/core";
+import { Drawer, Input, SimpleGrid, Switch, TextInput } from "@mantine/core";
 import BuilderConfigComp from "./BuilderConfigComp";
+import { useDisclosure } from "@mantine/hooks";
 
 const BuilderConfigCol = () => {
+  const [configOpened, configHandlers] = useDisclosure(true);
   return (
-    <div className="w-1/4 rounded-tl-panel rounded-bl-panel bg-skin-hue2 bg-opacity-30 to-skin-hue2 p-2">
-      <BuilderConfigColRow>
-        <BuilderConfigComp
-          id="1"
-          type="ConfigOption"
-          component={
-            <Input.Wrapper label="Field Label">
-              <Input />
-            </Input.Wrapper>
-          }
-        />
-      </BuilderConfigColRow>
+    <>
+      {/* Start of the psuedo Btn */}
+      <div
+        className="bg-primary-400 w-5 h-5"
+        onClick={() => configHandlers.open()}
+      ></div>
+      {/* End of the psuedo Btn */}
 
-      {/*<BuilderConfigColRow>
-         <BuilderConfigComp
-          component={
-            <Input.Wrapper label="Key">
-              <Input />
-            </Input.Wrapper>
-          }
-        />
-      </BuilderConfigColRow>
-
-      <BuilderConfigColRow>
-        <BuilderConfigComp
-          component={
-            <Input.Wrapper label="Default Value">
-              <Input />
-            </Input.Wrapper>
-          }
-        />
-      </BuilderConfigColRow>
-
-      <BuilderConfigColRow>
-        <BuilderConfigComp
-          component={
-            <Input.Wrapper label="Placeholder">
-              <Input />
-            </Input.Wrapper>
-          }
-        />
-      </BuilderConfigColRow>
-      <BuilderConfigColRow>
-        <div className="font-bold text-lg w-full mt-2 border-b-2">
-          Validation
+      <Drawer
+        classNames={{
+          header: "flex items-start justify-start",
+          drawer: "bg-gradient-to-r from-skin-hue2 to-skin-hue2 h-fit",
+        }}
+        position="bottom"
+        opened={configOpened}
+        onClose={() => configHandlers.close()}
+        withCloseButton={false}
+      >
+        <div className="w-full flex items-center justify-center bg-primary-200 text-dimmed text-2xl font-bold py-2">
+          Field Configs
         </div>
-      </BuilderConfigColRow>
-      <BuilderConfigColRow>
-        <BuilderConfigComp
-          component={
-            <Switch
-              labelPosition="left"
-              label="Required?"
-              onLabel="ON"
-              offLabel="OFF"
-            />
-          }
-        />
-      </BuilderConfigColRow> */}
-    </div>
+
+        <div className="w-10/12 mx-auto  p-5">
+          <SimpleGrid cols={2}>
+            <Input.Wrapper label="Field Name" withAsterisk>
+              <TextInput />
+            </Input.Wrapper>
+            <Input.Wrapper label="Key ID" withAsterisk>
+              <TextInput />
+            </Input.Wrapper>
+          </SimpleGrid>
+          <SimpleGrid cols={2}>
+            <Input.Wrapper label="Placeholder">
+              <TextInput />
+            </Input.Wrapper>
+            <Input.Wrapper label="Default Value">
+              <TextInput />
+            </Input.Wrapper>
+          </SimpleGrid>
+
+          <Switch label="Required" labelPosition="left" size="md" />
+        </div>
+      </Drawer>
+    </>
   );
 };
 

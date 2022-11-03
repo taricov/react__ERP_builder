@@ -37,14 +37,14 @@ const HelperTools = () => {
       />
       <StatusBarComp
         where="Status"
-        Icon={VscFeedback}
-        text="Feedback"
+        Icon={MdOutlineCalendarViewMonth}
+        text="Calendar"
         NoToolTip={true}
       />
       <StatusBarComp
         where="Status"
-        Icon={MdOutlineCalendarViewMonth}
-        text="Calendar"
+        Icon={VscFeedback}
+        text="Feedback"
         NoToolTip={true}
       />
     </div>
