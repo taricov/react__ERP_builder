@@ -60,6 +60,33 @@ const ShortcutsModal = () => {
               <ShortcutsRow desc="gsfdsfs effe" shCuts={["M", "T", "3"]} />
               <ShortcutsRow desc="gsfdsfs effe" shCuts={["M", "T", "3"]} />
             </ShortcutsSection>
+            <ShortcutsSection title="Notes App">
+              <ShortcutsRow desc="gsfdsfs effe" shCuts={["M", "T", "3"]} />
+              <ShortcutsRow
+                desc="toggle bold format in current selection"
+                shCuts={["Ctrl / ⌘", "B"]}
+              />
+              <ShortcutsRow
+                desc="toggle italic format in current selection"
+                shCuts={["Ctrl / ⌘", "I"]}
+              />
+              <ShortcutsRow
+                desc="toggle italic format in current selection"
+                shCuts={["Ctrl / ⌘", "I"]}
+              />
+              <ShortcutsRow
+                desc="toggle underline format in current selection"
+                shCuts={["Ctrl / ⌘", "U"]}
+              />
+              <ShortcutsRow
+                desc="add link to current selection"
+                shCuts={["Ctrl / ⌘", "K"]}
+              />
+              <ShortcutsRow
+                desc="toggle heading at current line, valid for 1-6 headings"
+                shCuts={["Ctrl / ⌘", "Alt", "1"]}
+              />
+            </ShortcutsSection>
           </div>
         </div>
       </SiteCompModal>

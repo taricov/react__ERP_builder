@@ -1,7 +1,15 @@
 import autoAnimate from "@formkit/auto-animate";
-import { ActionIcon, CloseButton, Transition } from "@mantine/core";
+import {
+  ActionIcon,
+  CloseButton,
+  Input,
+  TextInput,
+  Transition,
+  Button,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import React, { useEffect, useRef } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { CgExpand } from "react-icons/cg";
 import SiteCompTextEditor from "../site_compsnents/SiteCompTextEditor";
 
@@ -9,12 +17,19 @@ const TodoApp = () => {
   //   const [todoOpen, setTodoOpen] = useState<boolean>(false);
   const [todoOpenStatus, closeHandlers] = useDisclosure(false);
   const [todoSizeStatus, sizeHandlers] = useDisclosure(false);
+  const [todoList, setTodoList] = useState<string[]>([]);
+  const [todoItem, setTodoItem] = useState<string>("");
   const todoResizerRef = useRef(null);
   // useAutoAnimate(todoResizerRef);
   useEffect(() => {
     todoResizerRef.current && autoAnimate(todoResizerRef.current);
   }, [todoResizerRef]);
   // const [todoResizerRef] = autoAnimate();
+  const todoSubmit = (e: React.SyntheticEvent) => {
+    setTodoItem("");
+    e.preventDefault();
+    setTodoList([...todoList, todoItem]);
+  };
   return (
     <>
       <div
@@ -49,13 +64,44 @@ const TodoApp = () => {
               />
             </div>
             <div className="flex flex-col item-start justify-center w-full h-full">
-              <div className="flex-1 flex flex-col items-start justify-start gap-1">
-                <div className="p-1 ">Notes go here!!!</div>
-                <div>Notes go here!!!</div>
-                <div>Notes go here!!!</div>
-              </div>
-              <div className="w-5/6 h-fit">
-                <SiteCompTextEditor />
+              <ul className="list-none flex-1 flex flex-col items-start justify-start gap-1">
+                {todoList.map((todo, i) => (
+                  <li className="p-1 flex items-between transition-all duration-trans">
+                    <TextInput
+                      value={todo}
+                      key={i}
+                      variant="unstyled"
+                      className="focus:border focus:border-white"
+                    />
+                    <CloseButton
+                      size={"xs"}
+                      color="dark"
+                      className="transition-all duration-trans"
+                      //   onClick={(key) =>
+                      //     setTodoList(todoList.filter((v) => v !== key))
+                      //   }
+                    />
+                  </li>
+                ))}
+              </ul>
+              <div className="w-full h-fit p-3">
+                <form
+                  onSubmit={todoSubmit}
+                  className="flex items-start justify-center w-full gap-2"
+                >
+                  <TextInput
+                    className="flex-1 "
+                    variant="default"
+                    value={todoItem}
+                    onChange={(e) => setTodoItem(e.target.value)}
+                  />
+                  <Button
+                    type="submit"
+                    className="bg-primary-500 hover:bg-primary-400 transition-all duration-trans"
+                  >
+                    Add
+                  </Button>
+                </form>
               </div>
             </div>
           </div>
