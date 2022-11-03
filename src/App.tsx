@@ -4,6 +4,7 @@ import AppTopBar from "./components/AppTopBar";
 import ShortcutsModal from "./components/ShortcutsModal";
 import StatusBar from "./components/StatusBar";
 import NotesApp from "./components/helper_apps/NotesApp";
+import TodoApp from "./components/helper_apps/TodoApp";
 import AddNewRowPlaceholderPage from "./pages/AddNewRowPlaceholderPage";
 import Error404Page from "./pages/Error404Page";
 import ExistingRowViewPlaceholderPage from "./pages/ExistingRowViewPlaceholderPage";
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className={"light"}>
       {/* <NotesApp /> */}
-      {/* <TodoApp /> */}
+      <TodoApp />
       {!hideBars ? (
         <>
           <AppTopBar />
