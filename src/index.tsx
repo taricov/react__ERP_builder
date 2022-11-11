@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
@@ -9,6 +9,10 @@ import { FiSearch } from "react-icons/fi";
 import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
 import { SlDocs } from "react-icons/sl";
 import { MantineProvider } from "@mantine/styles";
+import { Provider, useAtom } from "jotai";
+// import { darkModeAtom } from "./components/AppToolBar";
+import { darkModeAtom } from "./jotai/atoms";
+
 interface Props {
   children?: React.ReactNode;
   // any props that come into the component
@@ -40,7 +44,6 @@ const defaultSpotlightActions: SpotlightAction[] = [
     icon: <SlDocs />,
   },
 ];
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -49,13 +52,16 @@ const Wrapper = ({ children }: Props): any => {
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
+
+  // const [darkModeStatus] = useAtom(darkModeAtom);
+  // console.log("DM", darkModeStatus);
   return children;
 };
-//TODO: Add Shortcuts section
+
 root.render(
   <>
     <MantineProvider
-      theme={{ colorScheme: "light" }}
+      theme={{ colorScheme: "dark" }}
       withGlobalStyles
       withNormalizeCSS
     >
@@ -75,7 +81,9 @@ root.render(
         <BrowserRouter>
           <Wrapper>
             <React.StrictMode>
-              <App />
+              <Provider>
+                <App />
+              </Provider>
             </React.StrictMode>
           </Wrapper>
         </BrowserRouter>

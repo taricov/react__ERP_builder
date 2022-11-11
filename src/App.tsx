@@ -24,7 +24,7 @@ function App() {
     currPage === "/register" || currPage === "/login" ? true : false
   );
   return (
-    <div className={"light"}>
+    <div className={"dark"}>
       {/* <NotesApp /> */}
       <TodoApp />
       {!hideBars ? (

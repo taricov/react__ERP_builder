@@ -8,6 +8,7 @@ import {
   Button,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { randomUUID } from "crypto";
 
 import React, { useEffect, useRef, useState } from "react";
 import { CgExpand } from "react-icons/cg";
@@ -17,19 +18,31 @@ const TodoApp = () => {
   //   const [todoOpen, setTodoOpen] = useState<boolean>(false);
   const [todoOpenStatus, closeHandlers] = useDisclosure(false);
   const [todoSizeStatus, sizeHandlers] = useDisclosure(false);
-  const [todoList, setTodoList] = useState<string[]>([]);
+  const [todoList, setTodoList] =
+    useState<[{ id: string; todo: string; completed: boolean }]>();
   const [todoItem, setTodoItem] = useState<string>("");
   const todoResizerRef = useRef(null);
   // useAutoAnimate(todoResizerRef);
-  useEffect(() => {
-    todoResizerRef.current && autoAnimate(todoResizerRef.current);
-  }, [todoResizerRef]);
+
   // const [todoResizerRef] = autoAnimate();
   const todoSubmit = (e: React.SyntheticEvent) => {
     setTodoItem("");
     e.preventDefault();
-    setTodoList([...todoList, todoItem]);
+    // setTodoList([...todoList, { id: uuid(), todoItem, completed: false }]);
   };
+  const [editTodo, editTodoHandlers] = useDisclosure(false);
+  const [editedTodo, setEditedTodo] = useState("");
+  console.log(editTodo);
+  const todoListRef = useRef(null);
+  useEffect(() => {
+    todoListRef.current && autoAnimate(todoListRef.current);
+    todoResizerRef.current && autoAnimate(todoResizerRef.current);
+  });
+
+  //   const removeTodoItem = (id) => {
+  // setTodoList(todoList.filter((v) => v.key === id));
+  //   };
+
   return (
     <>
       <div
@@ -44,45 +57,67 @@ const TodoApp = () => {
       >
         {(styles) => (
           <div
+            ref={todoResizerRef}
             style={styles}
             className={
               (!todoSizeStatus ? `w-2/6 h-3/6 ` : `w-5/6 h-5/6 `) +
               `overflow-hidden rounded-panel p-2 fixed bottom-10 left-10 flex flex-col item-start justify-center bg-primary-600 z-10 dark:bg-black dark:from-black dark:to-slate-800 transition-all duration-trans`
             }
           >
-            <div
-              className="w-full flex items-center justify-end my-1"
-              ref={todoResizerRef}
-            >
-              <ActionIcon className="" onClick={() => sizeHandlers.toggle()}>
-                <CgExpand className="hover:bg-primary-200 transition-colors duration-trans dark:hover:bg-opacity-90 w-fit" />
+            <div className="w-full flex items-center justify-end my-1">
+              <ActionIcon
+                className="hover:bg-primary-500"
+                onClick={() => sizeHandlers.toggle()}
+              >
+                <CgExpand className="text-slate-200 transition-colors duration-trans dark:hover:bg-opacity-90 w-fit" />
               </ActionIcon>
               <CloseButton
                 onClick={() => closeHandlers.close()}
                 size="sm"
-                className="hover:bg-primary-200 transition-colors duration-trans dark:hover:bg-opacity-90"
+                className="hover:bg-primary-500 text-slate-200 transition-colors duration-trans dark:hover:bg-opacity-90"
               />
             </div>
             <div className="flex flex-col item-start justify-center w-full h-full">
-              <ul className="list-none flex-1 flex flex-col items-start justify-start gap-1">
-                {todoList.map((todo, i) => (
-                  <li className="p-1 flex items-between transition-all duration-trans">
-                    <TextInput
-                      value={todo}
-                      key={i}
-                      variant="unstyled"
-                      className="focus:border focus:border-white"
-                    />
+              <ul
+                className="list-none flex-1 flex flex-col items-start justify-start gap-1 w-full overflow-auto p-2"
+                ref={todoListRef}
+              >
+                {/* {todoList.map((todo, i) => (
+                  <li className="p-2 rounded-panel text-white text-md flex items-center justify-between bg-primary-500 w-full">
+                    {true ? (
+                      <div
+                        className=""
+                        key={i}
+                        onClick={(e) =>
+                          e.detail === 2
+                            ? editTodoHandlers.open()
+                            : e.target === e.currentTarget
+                            ? console.log(e.currentTarget)
+                            : null
+                        }
+                      >
+                        {todo}
+                      </div>
+                    ) : (
+                      <TextInput
+                        readOnly={editTodo}
+                        value={editedTodo}
+                        key={i}
+                        variant={"filled"}
+                        className=""
+                        onChange={(e) => setEditedTodo(e.target.value)}
+                      />
+                    )}
                     <CloseButton
                       size={"xs"}
-                      color="dark"
+                      color="red"
                       className="transition-all duration-trans"
                       //   onClick={(key) =>
                       //     setTodoList(todoList.filter((v) => v !== key))
                       //   }
                     />
                   </li>
-                ))}
+                ))} */}
               </ul>
               <div className="w-full h-fit p-3">
                 <form

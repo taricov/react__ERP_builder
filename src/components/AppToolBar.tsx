@@ -18,9 +18,11 @@ import { VscSync, VscSyncIgnored } from "react-icons/vsc";
 import { useGoBack } from "../custom_hooks/useBackUrl";
 import SiteCompIconDropDown from "./site_compsnents/SiteCompIconDropDown";
 import StatusBarComp from "./StatusBarComp";
+import { useAtom } from "jotai";
+import { darkModeAtom } from "../jotai/atoms";
+import { RiCoinsLine } from "react-icons/ri";
 
 // const summonSpotLight = useHotkeys()
-
 const addBtnItems = [
   { title: "New Module", href: "#" },
   { title: "New Invoice", href: "#" },
@@ -38,10 +40,15 @@ const notificationQueue = [
   { notificationBody: "Text body goes here!!", notificationStatus: "Unseen" },
 ];
 
+// const darkModeAtom = atom(localStorage.getItem("darkMode") ?? true);
+
 const AppToolBar = () => {
   const [soundMode, setSoundMode] = useState(
     localStorage?.getItem("soundMode") ?? true
   );
+
+  const [darkModeStatus, setDarkModeStatus] = useAtom(darkModeAtom);
+
   const [darkMode, setDarkMode] = useState(
     localStorage?.getItem("darkMode") ?? true
   );
@@ -54,10 +61,11 @@ const AppToolBar = () => {
     setSoundMode(!soundMode);
     localStorage.setItem("soundMode", JSON.stringify(!soundMode));
   };
-  const darkModeFn = () => {
-    setDarkMode(!darkMode);
-    localStorage.setItem("darkMode", JSON.stringify(!darkMode));
-  };
+  // const darkModeFn = () => {
+  //   setDarkModeStatus(!darkModeStatus);
+  //   setDarkMode(!darkMode);
+  //   localStorage.setItem("darkMode", JSON.stringify(!darkMode));
+  // };
   const syncModeFn = () => {
     setSyncMode(!syncMode);
     localStorage.setItem("syncMode", JSON.stringify(!syncMode));
@@ -155,9 +163,10 @@ const AppToolBar = () => {
         </div>
         <div
           className="h-full flex items-center justify-center"
-          onClick={darkModeFn}
+          // onClick={darkModeFn}
+          onClick={() => setDarkModeStatus(!darkModeStatus)}
         >
-          {darkMode ? (
+          {darkModeStatus ? (
             <StatusBarComp
               Icon={MdOutlineLightMode}
               text=""

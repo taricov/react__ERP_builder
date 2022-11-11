@@ -11,6 +11,7 @@ const SiteCompTextEditor = () => {
     <div>
       <RichTextEditor
         value={value}
+        className=""
         onChange={onChange}
         placeholder="Pass your Todo(s)"
         classNames={{
