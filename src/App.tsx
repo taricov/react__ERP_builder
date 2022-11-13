@@ -23,6 +23,11 @@ function App() {
   const [hideBars, setHideBars] = useState(
     currPage === "/register" || currPage === "/login" ? true : false
   );
+
+  //TODO: https://codesandbox.io/s/currying-bush-2c3hc?file=/src/App.tsx:1075-1091 (calendar)
+  //TODO: https://codesandbox.io/s/github/react-dnd/react-dnd/tree/gh-pages/examples_ts/02-drag-around/custom-drag-layer?from-embed=&file=/src/index.tsx (React dnd)
+  //TODO: https://react-move-docs.netlify.app/demos/draggable-list (React Move)
+  //TODO: https://github.com/StreakYC/react-draggable-list (React List drag and drop)
   return (
     <div className={"dark"}>
       {/* <NotesApp /> */}
