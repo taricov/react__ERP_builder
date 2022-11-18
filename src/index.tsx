@@ -61,7 +61,7 @@ const Wrapper = ({ children }: Props): any => {
 root.render(
   <>
     <MantineProvider
-      theme={{ colorScheme: "dark" }}
+      theme={{ colorScheme: "light" }}
       withGlobalStyles
       withNormalizeCSS
     >

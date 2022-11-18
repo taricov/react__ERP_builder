@@ -29,9 +29,9 @@ function App() {
   //TODO: https://react-move-docs.netlify.app/demos/draggable-list (React Move)
   //TODO: https://github.com/StreakYC/react-draggable-list (React List drag and drop)
   return (
-    <div className={"dark"}>
+    <div className={"light"}>
       {/* <NotesApp /> */}
-      <TodoApp />
+      {/* <TodoApp /> */}
       {!hideBars ? (
         <>
           <AppTopBar />
