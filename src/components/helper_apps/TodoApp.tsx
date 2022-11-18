@@ -27,6 +27,7 @@ const TodoApp = () => {
   // const [todoResizerRef] = autoAnimate();
   const todoSubmit = (e: React.SyntheticEvent) => {
     setTodoItem("");
+
     e.preventDefault();
     // setTodoList([...todoList, { id: uuid(), todoItem, completed: false }]);
   };
