@@ -1,6 +1,3 @@
-import React from "react";
-import ShortcutsRow from "./ShortcutsRow";
-
 interface Props {
   title: string;
   children: JSX.Element | JSX.Element[];
