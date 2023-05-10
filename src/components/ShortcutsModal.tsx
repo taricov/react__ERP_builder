@@ -1,6 +1,6 @@
 import { useHotkeys } from "@mantine/hooks";
 import { useState } from "react";
-import ShortcutsRow from "./ShortcutsRow";
+import ShortcutsRow from "./ShortCutsRow";
 import ShortcutsSection from "./ShortcutsSection";
 import SiteCompModal from "./site_compsnents/SiteCompModal";
 
